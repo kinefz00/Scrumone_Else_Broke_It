@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column
     private int id;
     @Column
