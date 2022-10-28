@@ -17,6 +17,11 @@ public class Product {
     @Column
     private float price;
 
+    @Column
+    private String category;
+    @Column
+    private String description;
+
     public int getId() {
         return id;
     }
@@ -31,6 +36,14 @@ public class Product {
 
     public float getPrice() {
         return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public void setId(int id) {
@@ -49,4 +62,11 @@ public class Product {
         this.price = price;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

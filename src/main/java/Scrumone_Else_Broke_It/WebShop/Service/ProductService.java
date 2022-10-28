@@ -43,4 +43,9 @@ public class ProductService{
     public void deleteProduct(int id){
         productRepository.deleteById(id);
     }
+
+    public void edit(int id, Product product){
+        product.setId(id);
+        productRepository.save(product);
+    }
 }
