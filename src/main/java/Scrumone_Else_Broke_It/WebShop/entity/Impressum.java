@@ -1,15 +1,15 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-@Getter
-@Setter
-@Data
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Impressum {
     @Id
     @Column
