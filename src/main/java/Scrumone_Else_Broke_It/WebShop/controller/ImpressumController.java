@@ -2,7 +2,7 @@ package Scrumone_Else_Broke_It.WebShop.controller;
 
 
 import Scrumone_Else_Broke_It.WebShop.entity.Impressum;
-import Scrumone_Else_Broke_It_WebShop.service.ImpressumService;
+import Scrumone_Else_Broke_It.WebShop.service.ImpressumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -15,5 +15,5 @@ public class Impressum {
     @Column
     private int id;
     @Column
-    private String impressum;
+    private String impressumText;
 }
