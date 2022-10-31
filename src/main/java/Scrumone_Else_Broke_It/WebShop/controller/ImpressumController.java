@@ -12,7 +12,7 @@ public class ImpressumController {
     @Autowired
     ImpressumService impressumService;
 
-    @GetMapping("/impressum/{Id}")
+    @GetMapping("/impressum/{id}")
     private Impressum getImpressumId(@PathVariable("id") int id) {
         return impressumService.getImpressumById(id);
     }
