@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="shadow">
+  <span class="header-title" [routerLink]="''">{{ title }}</span>
+  <span class="spacer"></span>
+  <div>
+    <a *ngFor="let n of menuBarItems" mat-button [routerLink]="n.routePath">
+      {{ n.name }}
+    </a>
+  </div>
+</mat-toolbar>
