@@ -1,4 +1,4 @@
-package Scrumone_Else_Broke_It.WebShop.Service;
+package Scrumone_Else_Broke_It.WebShop.service;
 
 import Scrumone_Else_Broke_It.WebShop.entity.Product;
 import Scrumone_Else_Broke_It.WebShop.repository.ProductRepository;

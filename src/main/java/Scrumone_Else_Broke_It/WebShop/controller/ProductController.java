@@ -2,7 +2,7 @@ package Scrumone_Else_Broke_It.WebShop.controller;
 
 import java.util.List;
 
-import Scrumone_Else_Broke_It.WebShop.Service.ProductService;
+import Scrumone_Else_Broke_It.WebShop.service.ProductService;
 import Scrumone_Else_Broke_It.WebShop.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
