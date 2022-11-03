@@ -11,12 +11,17 @@ public class ImpressumService {
     @Autowired
     private ImpressumRepository impressumRepository;
 
-    public void saveOrUpdateImpressum(Impressum impressum){
+    public void saveImpressum(Impressum impressum){
         impressumRepository.save(impressum);
     }
 
     public Impressum getImpressumById(int id){
         return impressumRepository.findById(id).get();
+    }
+
+    public void edit(int id, Impressum impressum){
+        impressum.setId(id);
+        impressumRepository.save(impressum);
     }
 
 }
