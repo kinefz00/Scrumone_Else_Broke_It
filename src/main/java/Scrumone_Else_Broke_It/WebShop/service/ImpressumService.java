@@ -15,8 +15,7 @@ public class ImpressumService {
         impressumRepository.save(impressum);
     }
 
-    public Impressum getImpressumById(int id){
-        return impressumRepository.findById(id).get();
+    public Impressum getImpressumById(int id){return impressumRepository.findById(id).get();
     }
 
     public void edit(int id, Impressum impressum){

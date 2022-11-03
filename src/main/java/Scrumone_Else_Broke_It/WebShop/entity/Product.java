@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 
 public class Product {
-
+    //Attributes
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
