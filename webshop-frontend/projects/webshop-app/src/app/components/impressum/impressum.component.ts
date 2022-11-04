@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Impressum } from 'projects/shared-lib/src/lib/models';
+import {Impressum} from "projects/shared-lib/src/public-api";
 import {
   ImpressumHttpService,
   ImpressumResponse,
-} from 'projects/shared-lib/src/public-api';
+}
+ from 'projects/shared-lib/src/public-api';
 
 @Component({
   selector: 'app-impressum',
@@ -11,7 +12,7 @@ import {
   styleUrls: ['./impressum.component.scss'],
 })
 export class ImpressumComponent implements OnInit {
-  public impressum: Impressum; // Liste von Produkten, initialisiert als leeres Array um Laufzeitfehler zu vermeiden
+  public impressum: Impressum[]; // Liste von Impressi, initialisiert als leeres Array um Laufzeitfehler zu vermeiden
 
   constructor(
     private impressumService: ImpressumHttpService // DependencyInjection

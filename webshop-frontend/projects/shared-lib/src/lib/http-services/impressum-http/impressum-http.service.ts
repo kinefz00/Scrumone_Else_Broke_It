@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../../models';
-import {ImpressumComponent} from "../../../../../webshop-app/src/app/components/impressum/impressum.component";
+import {Impressum} from "../../models";
 
 export interface ImpressumResponse {
-  content: ImpressumComponent;
+  content: Impressum[];
   pageable: string;
   totalPages: number;
   totalElements: number;
@@ -31,7 +30,7 @@ export class ImpressumHttpService {
 
   constructor(private http: HttpClient) {}
 
-  public getImpressum(queryParams?: any): Observable<ImpressumComponent> {
-    return this.http.get<ImpressumComponent>(`${this.url}/${this.path}`);
+  public getImpressum(queryParams?: any): Observable<Impressum[]> {
+    return this.http.get<Impressum[]>(`${this.url}/${this.path}`);
   }
 }
