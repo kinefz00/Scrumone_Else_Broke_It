@@ -12,7 +12,7 @@ import {
   styleUrls: ['./impressum.component.scss'],
 })
 export class ImpressumComponent implements OnInit {
-  public impressum: Impressum[]; // Liste von Impressi, initialisiert als leeres Array um Laufzeitfehler zu vermeiden
+  public impressum: Impressum[] = []; // Liste von Impressi, initialisiert als leeres Array um Laufzeitfehler zu vermeiden
 
   constructor(
     private impressumService: ImpressumHttpService // DependencyInjection
@@ -21,7 +21,7 @@ export class ImpressumComponent implements OnInit {
   ngOnInit(): void {
     this.impressumService
       .getImpressum()
-      .subscribe((response: Impressum) => { // Subscription auf ein "Observable" vom Type "ProductResponse"
+      .subscribe((response: Impressum[]) => { // Subscription auf ein "Observable" vom Type "ProductResponse"
         console.log('>>> Impressum ', response);
         this.impressum = response;
       });
