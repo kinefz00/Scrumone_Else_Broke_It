@@ -17,9 +17,10 @@ import javax.persistence.Table;
 @Setter
 @Table
 public class Impressum {
+    //Attributes
     @Id
     @Column
-    private int id;
+    private int id; //trying to always set id = 1
     @Column
     private String impressumText;
 }

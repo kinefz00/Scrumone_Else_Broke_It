@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+/webshop-frontend/node_modules/
+/webshop-frontend/.angular/
