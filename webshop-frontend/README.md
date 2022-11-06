@@ -19,7 +19,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 The webshop-frontend is based on a single application named "webshop-app" and a library called "shared-lib".
 The following sections describes the purpose of each one.
 
-![image](https://user-images.githubusercontent.com/3502336/197365105-e383b08d-4d91-44da-901d-d5568f5b2820.png)
+![image](https://customer-images.githubusercontent.com/3502336/197365105-e383b08d-4d91-44da-901d-d5568f5b2820.png)
 
 
 ### webshop-app
