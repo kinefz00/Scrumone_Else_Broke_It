@@ -8,19 +8,17 @@ import javax.persistence.*;
 
 
 @Entity
-@Table
+@Table(name = "APP_USER")
 @Getter
 @Setter
-public class Customer {
+public class UserEntity {
     //Attributes
     @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
-
-    @Column
-    private String email;
-
+    @Column(nullable = false, unique = true)
+    private String username;
     @Column
     private String password;
+    @Column
+    private String role;
+
 }
