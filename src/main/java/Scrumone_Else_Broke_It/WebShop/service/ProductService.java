@@ -17,6 +17,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public void saveOrUpdate(Product product) {
+        logger.info("Product saved");
         productRepository.save(product);
     }
 
