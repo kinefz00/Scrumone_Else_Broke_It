@@ -1,8 +1,6 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
 
-
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

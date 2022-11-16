@@ -34,13 +34,13 @@ public class ProductService {
     }
 
     public void deleteProduct(int id) {
-        logger.info("Delete \"Product\" with id: "+id);
+        logger.info("Delete \"Product\" with id: " + id);
         productRepository.deleteById(id);
     }
 
     public void edit(int id, Product product) {
         product.setId(id);
         productRepository.save(product);
-        logger.info("Edit \"Product\" with id: "+id);
+        logger.info("Edit \"Product\" with id: " + id);
     }
 }

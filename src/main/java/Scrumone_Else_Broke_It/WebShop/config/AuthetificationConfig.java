@@ -34,7 +34,7 @@ public class AuthetificationConfig {
                 .httpBasic(withDefaults());
 
         httpSecurity.csrf()
-                        .disable();
+                .disable();
 //                .ignoringAntMatchers("/h2-console/**");
         httpSecurity.headers()
                 .frameOptions()

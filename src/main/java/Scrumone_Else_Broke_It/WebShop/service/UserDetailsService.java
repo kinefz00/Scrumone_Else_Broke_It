@@ -20,6 +20,7 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Autowired
     private UserRepository userRepository;
     public static Logger logger = Logger.getLogger(String.valueOf(UserController.class));
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -52,12 +53,12 @@ public class UserDetailsService implements org.springframework.security.core.use
     }
 
     public UserEntity getUserByUsername(String username) {
-        logger.info("Get User with \"username\". "+  username);
+        logger.info("Get User with \"username\". " + username);
         return userRepository.findByUsername(username);
     }
 
     public void deleteUser(String username) {
-        logger.info("Delete User with \"username\": " +username);
+        logger.info("Delete User with \"username\": " + username);
         userRepository.deleteById(username);
     }
 

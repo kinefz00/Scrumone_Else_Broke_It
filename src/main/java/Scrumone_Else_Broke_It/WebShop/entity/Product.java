@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "product")
+@Table(name = "product")
 @Getter
 @Setter
 
@@ -17,16 +17,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     @Column
-    private String name;
+    private String category;
     @Column
     private String currency;
     @Column
-    private double price;
-
-    @Column
-    private String category;
-    @Column
     private String description;
-
+    @Column
+    private String name;
+    @Column
+    private double price;
 
 }

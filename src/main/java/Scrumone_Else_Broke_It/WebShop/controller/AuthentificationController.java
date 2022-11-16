@@ -14,7 +14,7 @@ import java.security.Principal;
 @RequestMapping("/public/v1")
 public class AuthentificationController {
     @GetMapping(path = "/basicauth")
-    public ResponseEntity<UserEntity> login(Principal principle){
+    public ResponseEntity<UserEntity> login(Principal principle) {
         String name = principle.getName();
         System.out.println(name);
         return new ResponseEntity<UserEntity>(
