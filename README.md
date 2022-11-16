@@ -4,10 +4,10 @@ A simple Application with a Frontend and Backend secured by Basic Authentication
 
 ## Use Case
 
-1. User is able to see Lectures
-2. User can click on details and see students (only logged in once)
-3. User Can login
-4. User Can logout
+1. User is able to see Products
+2. User can click on details and see students (only logged in once) note yet done 
+3. User Can login not yet done
+4. User Can logout not yet done
 
 Username and passwords are generated in an in memory database. In data.sql the values are shown. 
 
