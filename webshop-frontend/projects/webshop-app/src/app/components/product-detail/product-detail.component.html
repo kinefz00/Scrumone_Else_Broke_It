@@ -1,1 +1,27 @@
-<p>product-detail works!</p>
+<!Doctype html>
+<html lang="ger">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Webshop Scrumone_Else_Broke_It</title>
+  <!-- import stylesheets and icons -->
+  <link rel="stylesheet" href="product-detail.component.scss">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<ng-container *ngFor="let p of productDetail " class="shop container">
+  <div class="shop-content">
+    <div class="product-box">
+      <h2 class="product-title" >{{p.name}}</h2>
+      <span class="price" >{{p.price}}</span>
+      <span class="currency" >{{p.currency}}</span>
+      <p class="category" >{{p.category}}</p>
+      <p class="description">{{p.description}}</p>
+      <p class="details">{{p.details}}</p>
+    </div>
+  </div>
+</ng-container>
+
+
+</body>
+</html>

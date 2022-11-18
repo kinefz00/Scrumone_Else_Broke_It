@@ -19,6 +19,10 @@ export class AppComponent {
       name: 'Impressum',
       routePath: 'impressum', // Routing-Pfad -> app-routing.module
     },
+    {
+      name: 'Users',
+      routePath: 'users', // Routing-Pfad -> app-routing.module
+    },
   ];
 
   constructor() {}

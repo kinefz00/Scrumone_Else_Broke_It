@@ -16,9 +16,16 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { AddUserDialogComponent } from './components/dialogs/add-user-dialog/add-user-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { AddUserFormComponent } from './components/forms/add-user-form/add-user-form.component';
 
 @NgModule({
-  declarations: [MenuBarComponent],
+  declarations: [
+    MenuBarComponent,
+    AddUserDialogComponent,
+    AddUserFormComponent,
+  ],
   imports: [
     BrowserAnimationsModule,
     RouterModule,
@@ -36,6 +43,13 @@ import { RouterModule } from '@angular/router';
     MatGridListModule,
     MatCardModule,
     MatDialogModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatToolbarModule,
   ],
   exports: [MenuBarComponent],
 })

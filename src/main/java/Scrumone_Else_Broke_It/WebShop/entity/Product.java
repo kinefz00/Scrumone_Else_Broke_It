@@ -23,8 +23,11 @@ public class Product {
     @Column
     private String description;
     @Column
+    private String details;
+    @Column
     private String name;
     @Column
     private double price;
+
 
 }

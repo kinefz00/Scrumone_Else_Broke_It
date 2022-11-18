@@ -12,11 +12,10 @@
 <ng-container *ngFor="let p of productList" class="shop container">
   <div class="shop-content">
     <div class="product-box">
-      <h2 class="product-title" >{{p.name}}</h2>
+      <a href="http://localhost:4200/1"> <h2 class="product-title" >{{p.name}}</h2></a>
       <span class="price" >{{p.price}}</span>
       <span class="currency" >{{p.currency}}</span>
       <p class="category" >{{p.category}}</p>
-      <p class="description">{{p.description}}</p>
     </div>
   </div>
 </ng-container>
