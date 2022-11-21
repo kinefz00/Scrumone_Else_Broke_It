@@ -5,6 +5,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { UsersComponent} from './components/users/users.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent} from './components/logout/logout.component';
+import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+  },
+  {
+    path: 'detail/:id',
+    component: ProductDetailComponent
   },
   {
     path: '', // fängt leere route in Browser Adressleiste ab und macht einen redirect -> 'products'

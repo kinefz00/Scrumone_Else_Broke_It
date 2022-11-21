@@ -11,11 +11,12 @@
 <body>
 <ng-container *ngFor="let p of productList" class="shop container">
   <div class="shop-content">
-    <div class="product-box">
-      <a href="http://localhost:4200/1"> <h2 class="product-title" >{{p.name}}</h2></a>
+     <div class="product-box">
+       <h2 class="product-title" >{{p.name}}</h2>
       <span class="price" >{{p.price}}</span>
       <span class="currency" >{{p.currency}}</span>
       <p class="category" >{{p.category}}</p>
+      <p></p> <a routerLink="/detail/{{p.id}}">Zu den Produktdetails</a><p>
     </div>
   </div>
 </ng-container>
