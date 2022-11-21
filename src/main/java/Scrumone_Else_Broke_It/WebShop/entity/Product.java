@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product")
+@Table
 @Getter
 @Setter
 
@@ -28,6 +28,5 @@ public class Product {
     private String name;
     @Column
     private double price;
-
 
 }
