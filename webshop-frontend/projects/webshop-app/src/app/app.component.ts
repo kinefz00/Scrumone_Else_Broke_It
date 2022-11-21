@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuBarItem } from 'projects/shared-lib/src/public-api';
+import {LoginComponent} from "./components/login/login.component";
+import {LogoutComponent} from "./components/logout/logout.component";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,14 @@ export class AppComponent {
 
   // Menüpunkte in der oberen Menüleiste -> Array von MenubarItems
   public menuItems: MenuBarItem[] = [
+    {
+      name: 'login',
+      routePath: 'login'
+    },
+    {
+      name: 'logout',
+      routePath: 'logout'
+    },
     {
       name: 'Produkte',
       routePath: 'products', // Routing-Pfad -> app-routing.module

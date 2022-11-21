@@ -1,1 +1,1 @@
-export * from './impressum-http.service';
+export * from './impressum-http.service'

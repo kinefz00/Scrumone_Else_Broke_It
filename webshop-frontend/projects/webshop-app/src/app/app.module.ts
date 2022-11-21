@@ -9,7 +9,7 @@ import { ImpressumComponent } from './components/impressum/impressum.component';
 import { UsersComponent } from './components/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,6 +28,10 @@ import {
   MAT_DIALOG_DEFAULT_OPTIONS,
 } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {LoginComponent} from './components/login/login.component';
+import {LogoutComponent} from './components/logout/logout.component';
+import {MessagesComponent} from './components/messages/messages.component';
+import { FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,8 +40,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ProductDetailComponent,
     ImpressumComponent,
     UsersComponent,
+    LoginComponent,
+    LogoutComponent,
+    MessagesComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     SharedLibModule,
