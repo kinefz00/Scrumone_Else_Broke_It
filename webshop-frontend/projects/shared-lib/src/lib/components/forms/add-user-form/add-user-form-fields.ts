@@ -15,4 +15,12 @@ export const ADD_USER_FORM_FIELDS: any[] = [
     id: 'email',
     label: 'E-Mail',
   },
+  {
+    id: 'password',
+    label: 'Password',
+  },
+  {
+    id: 'role',
+    label: 'Role',
+  },
 ];

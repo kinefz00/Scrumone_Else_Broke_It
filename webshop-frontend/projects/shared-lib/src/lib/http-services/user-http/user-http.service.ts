@@ -33,4 +33,8 @@ export class UsersHttpService {
   public getUser(queryParams?: any): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.url}/${this.path}`);
   }
+  public postUser(queryParams?: any){
+    return this.http.post<any>(`${this.url}/${this.path}`, queryParams);
+  }
+
 }
