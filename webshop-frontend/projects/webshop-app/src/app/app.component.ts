@@ -30,10 +30,34 @@ export class AppComponent {
       routePath: 'impressum', // Routing-Pfad -> app-routing.module
     },
     {
+      name: 'Profile',
+      routePath: 'logout', // Routing-Pfad -> app-routing.module
+    },
+  ];
+  public menuItemsAdmin: MenuBarItem[] = [
+    {
+      name: 'login',
+      routePath: 'login'
+    },
+    {
+      name: 'logout',
+      routePath: 'logout'
+    },
+    {
+      name: 'Produkte',
+      routePath: 'products', // Routing-Pfad -> app-routing.module
+    },
+    {
+      name: 'Impressum',
+      routePath: 'impressum', // Routing-Pfad -> app-routing.module
+    },
+    {
       name: 'Users',
       routePath: 'users', // Routing-Pfad -> app-routing.module
     },
+
   ];
+
 
   constructor() {}
 }
