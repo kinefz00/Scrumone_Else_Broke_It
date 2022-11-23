@@ -53,7 +53,7 @@ public class ProductController {
     }*/
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/update/{id}")
+    @PutMapping("/product/{id}")
     public ResponseEntity<Integer> update(@PathVariable int id, @RequestBody ProductUpdate update) {
         productService.update(id, update);
         return new ResponseEntity<>(Integer.valueOf(id), HttpStatus.OK);

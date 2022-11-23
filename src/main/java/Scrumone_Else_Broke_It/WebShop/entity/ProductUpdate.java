@@ -9,6 +9,7 @@ public class ProductUpdate {
     private Optional<String> description;
     private Optional<String> category;
 
+
     public ProductUpdate(String name, String currency, Double price, String description, String category) {
         this.name = Optional.of(name);
         this.currency = Optional.of(currency);
