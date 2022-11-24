@@ -47,7 +47,7 @@ export class AuthenticationService {
   }
   getRole(){
     let role = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-    return this.http.get<any>('http://loaclhost:8080/user/user1').subscribe((response: any) =>{
+    return this.http.get<any>('http://localhost:8080/user/user1').subscribe((response: any) =>{
       console.log("Userrole: "+response.role)
       localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, <string>response.role)
     })
