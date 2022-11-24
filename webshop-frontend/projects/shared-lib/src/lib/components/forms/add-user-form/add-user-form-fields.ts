@@ -1,6 +1,6 @@
 export const ADD_USER_FORM_FIELDS: any[] = [
   {
-    id: 'userName',
+    id: 'username',
     label: 'Username',
   },
   {

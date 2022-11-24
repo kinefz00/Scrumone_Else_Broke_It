@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import {Users} from "../../../../../shared-lib/src/lib/models";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthenticationService {
   authenticationService(username: string, password: string) {
     return this.http.get(`http://localhost:8080/public/v1/basicauth`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-
+      localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
       this.registerSuccessfulLogin(`${window.btoa(username + ":" + password)}`);
     }));
   }
@@ -35,6 +36,7 @@ export class AuthenticationService {
   }
 
   logout() {
+    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
   }
 
@@ -43,5 +45,11 @@ export class AuthenticationService {
     if (token === undefined || token === null) return false
     return true
   }
-
+  getRole(){
+    let role = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    return this.http.get<any>('http://loaclhost:8080/user/user1').subscribe((response: any) =>{
+      console.log("Userrole: "+response.role)
+      localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, <string>response.role)
+    })
+  }
 }

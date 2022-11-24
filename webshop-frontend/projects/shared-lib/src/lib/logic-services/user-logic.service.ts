@@ -43,4 +43,5 @@ export class UserLogicService {
     this.users.push(user);
     this.userList$.next(this.users);
   }
+
 }

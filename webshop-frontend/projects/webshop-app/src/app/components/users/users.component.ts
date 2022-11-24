@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   public userList: Users[]=[];
   public resultsLength = 0;
   public displayedColumns: string[] = [
-    'userName',
+    'username',
     'firstName',
     'lastName',
     'email',
@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.userService
       .getUser()
-      .subscribe((response: Users[]) => { // Subscription auf ein "Observable" vom Type "ProductResponse"
+      .subscribe((response: Users[]) => { // Subscription auf ein "Observable" vom Type "UserResponse"
         console.log('>>> Users ', response);
         this.userList= response;
       });

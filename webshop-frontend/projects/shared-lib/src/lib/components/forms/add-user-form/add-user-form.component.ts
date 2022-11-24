@@ -12,7 +12,7 @@ export class AddUserFormComponent implements OnInit {
   @Output() userAdded: EventEmitter<any> = new EventEmitter<any>();
 
   public addUserForm: FormGroup = this.formBuilder.group({
-    userName: ['', [Validators.required, Validators.maxLength(5)]],
+    username: ['', Validators.required],
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
     email: [null, [Validators.required, Validators.email]],
@@ -29,8 +29,8 @@ export class AddUserFormComponent implements OnInit {
   ngOnInit(): void {}
 
   public submit() {
-    console.log('>>>> ', this.addUserForm);
-    this.usersHttpService.postUser(this.addUserForm.value);
+    console.log('>>>> ', this.addUserForm.value);
+    this.userLogicService.addUser(this.addUserForm.value);
     this.userAdded.emit();
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UsersHttpService} from "../../../http-services";
+import { Users} from "../../../models";
 
 @Component({
   selector: 'lib-add-user',
@@ -9,10 +10,12 @@ import { UsersHttpService} from "../../../http-services";
 })
 export class AddUserDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<AddUserDialogComponent>,
-  private usersHttpService: UsersHttpService) {}
+  private usersHttpService: UsersHttpService,
+  //private users: Users
+  ) {}
 
   ngOnInit(): void {
-    this.usersHttpService.postUser()
+   this.usersHttpService.postUser()
 
   }
 

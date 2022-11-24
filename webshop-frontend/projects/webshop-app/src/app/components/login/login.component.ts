@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   handleLogin() {
     this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
+      this.authenticationService.getRole();
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';

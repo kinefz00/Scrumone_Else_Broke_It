@@ -34,7 +34,8 @@ export class UsersHttpService {
     return this.http.get<Users[]>(`${this.url}/${this.path}`);
   }
   public postUser(queryParams?: any){
-    return this.http.post<any>(`${this.url}/${this.path}`, queryParams);
+    console.log("Postlog", queryParams)
+    this.http.post<any>(`${this.url}/${this.path}`, queryParams);
   }
 
 }
