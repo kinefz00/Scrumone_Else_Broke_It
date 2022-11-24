@@ -6,32 +6,7 @@ import { Users } from './users.interfaces';
   providedIn: 'root',
 })
 export class UserLogicService {
-  private users: Users[] = [
-    {
-      userName: 'mad_max',
-      firstName: 'Max',
-      lastName: 'Mustermann',
-      email: 'maxmu@online.de',
-    },
-    {
-      userName: 'joe666',
-      firstName: 'Joe',
-      lastName: 'Jordison',
-      email: 'joe-y@online.de',
-    },
-    {
-      userName: 'freeenk',
-      firstName: 'Frank',
-      lastName: 'Bleck',
-      email: 'frable@online.de',
-    },
-    {
-      userName: 'erika',
-      firstName: 'Erika',
-      lastName: 'Müller',
-      email: 'erikaller@online.de',
-    },
-  ];
+  private users: Users[] =[];
 
   public userList$: BehaviorSubject<Users[]> = new BehaviorSubject<Users[]>(
     this.users

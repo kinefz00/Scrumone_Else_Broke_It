@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 import {Users} from "../../models";
 
 export interface UserResponse {
@@ -28,14 +28,20 @@ export class UsersHttpService {
   private url = 'http://localhost:8080';
   private path = 'user';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public getUser(queryParams?: any): Observable<Users[]> {
     return this.http.get<Users[]>(`${this.url}/${this.path}`);
   }
-  public postUser(users: Users){
+
+  public postUser(users: Users[]) {
     console.log("Postlog", users)
-    this.http.post<Users>(`${this.url}/${this.path}`, users);
+    this.http.post<Users>(`${this.url}/${this.path}`, users)
+      .subscribe((res) => {
+        console.log(res);
+      });
+
   }
 
 }
