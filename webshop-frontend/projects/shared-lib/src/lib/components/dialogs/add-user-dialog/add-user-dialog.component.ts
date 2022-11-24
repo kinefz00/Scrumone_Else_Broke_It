@@ -15,7 +15,7 @@ export class AddUserDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   this.usersHttpService.postUser()
+  // this.usersHttpService.postUser(this.users)
 
   }
 

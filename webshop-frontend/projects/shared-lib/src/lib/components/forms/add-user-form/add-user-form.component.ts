@@ -30,7 +30,7 @@ export class AddUserFormComponent implements OnInit {
 
   public submit() {
     console.log('>>>> ', this.addUserForm.value);
-    this.userLogicService.addUser(this.addUserForm.value);
+    this.usersHttpService.postUser(this.addUserForm.value);
     this.userAdded.emit();
   }
 }
