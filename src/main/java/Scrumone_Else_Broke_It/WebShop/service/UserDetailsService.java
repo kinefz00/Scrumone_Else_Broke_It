@@ -18,23 +18,24 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
+public class UserDetailsService {
 
     private final UserRepository userRepository;
     public static Logger logger = Logger.getLogger(String.valueOf(UserController.class));
+
     @Autowired
     public UserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    @Override
+
     @Transactional
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findByUsername(username);
+    public UserDetails loadUserById(int id) throws UsernameNotFoundException {
+        UserEntity userEntity = userRepository.findById(id);
         if (userEntity != null) {
             return new User(userEntity.getUsername(), userEntity.getPassword(), buildSimpleGrantedAuthorities(userEntity.getRole()));
         } else {
-            throw new UsernameNotFoundException("User not found with username: " + username);
+            throw new UsernameNotFoundException("User not found with id: " + id);
 
         }
 
@@ -46,8 +47,8 @@ public class UserDetailsService implements org.springframework.security.core.use
         return authorities;
     }
 
-    public Optional<UserEntity> findById(String username){
-        return userRepository.findById(username);
+    public Optional<UserEntity> findById(int id) {
+        return Optional.ofNullable(userRepository.findById(id));
     }
 
     public void saveOrUpdate(UserEntity userEntity) {
@@ -62,14 +63,14 @@ public class UserDetailsService implements org.springframework.security.core.use
         return list;
     }
 
-    public UserEntity getUserByUsername(String username) {
-        logger.info("Get User with \"username\". " + username);
-        return userRepository.findByUsername(username);
+    public UserEntity getUserById(int id) {
+        logger.info("Get User with \"username\". " + id);
+        return userRepository.findById(id);
     }
 
-    public void deleteUser(String username) {
-        logger.info("Delete User with \"username\": " + username);
-        userRepository.deleteById(username);
+    public void deleteUser(int id) {
+        logger.info("Delete User with \"username\": " + id);
+        userRepository.deleteById(id);
     }
 
     public void edit(String username, UserEntity userEntity) {
@@ -78,8 +79,8 @@ public class UserDetailsService implements org.springframework.security.core.use
         userRepository.save(userEntity);
     }
 
-    public void update(String username, UserUpdate update){
-        findById(username).ifPresent(x -> {
+    public void update(int id, UserUpdate update) {
+        findById(id).ifPresent(x -> {
             update.getEmail().ifPresent(e -> {
                 x.setEmail(e);
             });
@@ -92,7 +93,10 @@ public class UserDetailsService implements org.springframework.security.core.use
             update.getRole().ifPresent(r -> {
                 x.setRole(r);
             });
-            logger.info("Edit \"Product\" with id: " + username);
+            update.getUsername().ifPresent(u -> {
+                x.setUsername(u);
+            });
+            logger.info("Edit \"Product\" with id: " + id);
             userRepository.save(x);
         });
     }
