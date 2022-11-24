@@ -2,6 +2,7 @@ package Scrumone_Else_Broke_It.WebShop.service;
 
 import Scrumone_Else_Broke_It.WebShop.controller.UserController;
 import Scrumone_Else_Broke_It.WebShop.entity.UserEntity;
+import Scrumone_Else_Broke_It.WebShop.entity.UserUpdate;
 import Scrumone_Else_Broke_It.WebShop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,13 +14,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
+
+    private final UserRepository userRepository;
     public static Logger logger = Logger.getLogger(String.valueOf(UserController.class));
+    @Autowired
+    public UserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     @Transactional
@@ -38,6 +44,10 @@ public class UserDetailsService implements org.springframework.security.core.use
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(roles));
         return authorities;
+    }
+
+    public Optional<UserEntity> findById(String username){
+        return userRepository.findById(username);
     }
 
     public void saveOrUpdate(UserEntity userEntity) {
@@ -66,6 +76,25 @@ public class UserDetailsService implements org.springframework.security.core.use
         logger.info("Edit User with \"username\" " + username);
         userEntity.setUsername(username);
         userRepository.save(userEntity);
+    }
+
+    public void update(String username, UserUpdate update){
+        findById(username).ifPresent(x -> {
+            update.getEmail().ifPresent(e -> {
+                x.setEmail(e);
+            });
+            update.getFirstName().ifPresent(f -> {
+                x.setFirstName(f);
+            });
+            update.getLastName().ifPresent(l -> {
+                x.setLastName(l);
+            });
+            update.getRole().ifPresent(r -> {
+                x.setRole(r);
+            });
+            logger.info("Edit \"Product\" with id: " + username);
+            userRepository.save(x);
+        });
     }
 
 }

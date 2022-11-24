@@ -1,8 +1,11 @@
 package Scrumone_Else_Broke_It.WebShop.controller;
 
 import Scrumone_Else_Broke_It.WebShop.entity.UserEntity;
+import Scrumone_Else_Broke_It.WebShop.entity.UserUpdate;
 import Scrumone_Else_Broke_It.WebShop.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,11 +37,17 @@ public class UserController {
         userDetailsService.deleteUser(username);
     }
 
-    @PutMapping("/user/{username}")
+   /* @PutMapping("/user/{username}")
     public void editUser(@PathVariable String username, @RequestBody UserEntity userEntity) {
         userDetailsService.edit(username, userEntity);
-    }
+    }*/
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/user/{username}")
+    public ResponseEntity<String> updateUser(@PathVariable String username, @RequestBody UserUpdate update) {
+        userDetailsService.update(username, update);
+        return new ResponseEntity<>(String.valueOf(username), HttpStatus.OK);
+    }
 
     /*@PatchMapping("user/{username}")
     public void patchUser(@PathVariable String username, @RequestBody UserEntity userEntity) {

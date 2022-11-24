@@ -3,7 +3,7 @@
   <form class="form" [formGroup]="addUserForm" (submit)="submit()">
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Username</mat-label>
-      <input matInput formControlName="userName" />
+      <input matInput formControlName="username" />
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="fill">
@@ -19,6 +19,16 @@
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>E-Mail</mat-label>
       <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Role</mat-label>
+      <input matInput formControlName="role" />
     </mat-form-field>
 
     <button

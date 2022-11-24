@@ -1,32 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddUserDialogComponent } from 'projects/shared-lib/src/lib/components/dialogs/add-user-dialog/add-user-dialog.component';
-import { UserLogicService } from 'projects/shared-lib/src/lib/logic-services/user-logic.service';
-import { Observable } from 'rxjs';
-import { User } from '../../../../../shared-lib/src/lib/logic-services/users.interfaces';
+import {Users} from 'projects/shared-lib/src/lib/models';
+import {
+  UsersHttpService,
+  UserResponse,
+} from 'projects/shared-lib/src/public-api';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-users.ts',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
+  public userList: Users[]=[];
   public resultsLength = 0;
   public displayedColumns: string[] = [
-    'userName',
+    'username',
     'firstName',
     'lastName',
     'email',
   ];
 
-  private readonly users = Observable<User[]>;
+
 
   constructor(
     public dialog: MatDialog,
-    public userLogicService: UserLogicService
+    public userService: UsersHttpService,
   ) {}
 
-  async ngOnInit(): Promise<void> {}
+  ngOnInit(): void {
+    this.userService
+      .getUser()
+      .subscribe((response: Users[]) => { // Subscription auf ein "Observable" vom Type "UserResponse"
+        console.log('>>> Users ', response);
+        this.userList= response;
+      });
+  }
 
   public openAddUserDialog() {
     let dialogConfig = new MatDialogConfig();

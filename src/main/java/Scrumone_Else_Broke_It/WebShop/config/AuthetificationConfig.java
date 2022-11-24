@@ -24,6 +24,8 @@ public class AuthetificationConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
+                .antMatchers("/user/**")
+                .permitAll()
                 .antMatchers("/h2/**")
                 .permitAll()
                 .antMatchers("/public/**")

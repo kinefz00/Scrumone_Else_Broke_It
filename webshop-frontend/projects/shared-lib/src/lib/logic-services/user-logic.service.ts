@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { User } from './users.interfaces';
+import { Users } from './users.interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserLogicService {
-  private users: User[] = [
+  private users: Users[] = [
     {
       userName: 'mad_max',
       firstName: 'Max',
@@ -33,14 +33,15 @@ export class UserLogicService {
     },
   ];
 
-  public userList$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(
+  public userList$: BehaviorSubject<Users[]> = new BehaviorSubject<Users[]>(
     this.users
   );
 
   constructor() {}
 
-  public addUser(user: User): void {
+  public addUser(user: Users): void {
     this.users.push(user);
     this.userList$.next(this.users);
   }
+
 }
