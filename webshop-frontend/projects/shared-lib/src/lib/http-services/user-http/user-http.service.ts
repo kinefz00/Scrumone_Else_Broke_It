@@ -41,7 +41,12 @@ export class UsersHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-
+    this.getUser();
   }
-
+  public deleteUser(username?: string){
+    console.log("deleteUserLog", username)
+    this.http.delete(`${this.url}/${this.path}/${username}`)
+      .subscribe();
+    this.getUser();
+  }
 }

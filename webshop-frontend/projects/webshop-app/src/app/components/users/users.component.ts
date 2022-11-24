@@ -20,17 +20,18 @@ export class UsersComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
+    'buttons'
   ];
 
 
 
   constructor(
     public dialog: MatDialog,
-    public userService: UsersHttpService,
+    public userHttpService: UsersHttpService,
   ) {}
 
   ngOnInit(): void {
-    this.userService
+    this.userHttpService
       .getUser()
       .subscribe((response: Users[]) => { // Subscription auf ein "Observable" vom Type "UserResponse"
         console.log('>>> Users ', response);

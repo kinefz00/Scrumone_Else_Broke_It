@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public UserEntity saveUser(@RequestBody UserEntity userEntity) {
+    public UserEntity saveUser(@RequestBody UserEntity userEntity){
         userDetailsService.saveOrUpdate(userEntity);
         return userEntity;
     }
