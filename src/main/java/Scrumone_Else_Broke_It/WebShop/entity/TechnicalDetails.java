@@ -1,5 +1,7 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
+
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,21 +12,16 @@ import javax.persistence.*;
 @Table
 @Getter
 @Setter
-public class Product {
-    //Attributes
+public class TechnicalDetails {
+    @ManyToOne
+    private Product product;
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column
     private int id;
     @Column
-    private String category;
+    private String detailTitle;
     @Column
-    private String currency;
-    @Column
-    private String description;
-    @Column
-    private String name;
-    @Column
-    private double price;
+    private String detailText;
 
 }
