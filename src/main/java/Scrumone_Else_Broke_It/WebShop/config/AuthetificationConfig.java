@@ -31,7 +31,7 @@ public class AuthetificationConfig {
                 .antMatchers("/public/**")
                 .permitAll()
                 .antMatchers("/private/**")
-                .hasAnyRole("USER", "ADMIN")
+                .hasAnyRole("USER", "ADMIN","PUSER")
                 .and()
                 .httpBasic(withDefaults());
 

@@ -13,44 +13,42 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
+
+    private final UserDetailsService userDetailsService;
+
     @Autowired
-    UserDetailsService userDetailsService;
+    public UserController(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
 
     @GetMapping("/user")
     private List<UserEntity> getAllUser() {
         return userDetailsService.getAllUser();
     }
 
-    @GetMapping("/user/{username}")
-    private UserEntity getUserByUsername(@PathVariable String username) {
-        return userDetailsService.getUserByUsername(username);
+    @GetMapping("/user/{id}")
+    private UserEntity getUserById(@PathVariable int id) {
+        return userDetailsService.getUserById(id);
     }
 
     @PostMapping("/user")
-    public UserEntity saveUser(@RequestBody UserEntity userEntity){
+    public UserEntity saveUser(@RequestBody UserEntity userEntity) {
         userDetailsService.saveOrUpdate(userEntity);
         return userEntity;
     }
 
-    @DeleteMapping("/user/{username}")
-    public void deleteUser(@PathVariable String username) {
-        userDetailsService.deleteUser(username);
+    @DeleteMapping("/user/{id}")
+    public void deleteUser(@PathVariable int id) {
+        userDetailsService.deleteUser(id);
     }
 
-   /* @PutMapping("/user/{username}")
-    public void editUser(@PathVariable String username, @RequestBody UserEntity userEntity) {
-        userDetailsService.edit(username, userEntity);
-    }*/
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/user/{username}")
-    public ResponseEntity<String> updateUser(@PathVariable String username, @RequestBody UserUpdate update) {
-        userDetailsService.update(username, update);
-        return new ResponseEntity<>(String.valueOf(username), HttpStatus.OK);
+    
+    @PutMapping("/user/{id}")
+    public ResponseEntity<Integer> updateUser(@PathVariable int id, @RequestBody UserUpdate update) {
+        userDetailsService.update(id, update);
+        return new ResponseEntity<>(Integer.valueOf(id), HttpStatus.OK);
     }
 
-    /*@PatchMapping("user/{username}")
-    public void patchUser(@PathVariable String username, @RequestBody UserEntity userEntity) {
-        userDetailsService.edit(username, userEntity);
-    }*/
 }
