@@ -12,7 +12,6 @@ export class AddUserFormComponent implements OnInit {
   @Output() userAdded: EventEmitter<any> = new EventEmitter<any>();
 
   public addUserForm: FormGroup = this.formBuilder.group({
-    id: [''],
     username: ['', Validators.required],
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],

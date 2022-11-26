@@ -43,15 +43,15 @@ export class UsersHttpService {
       });
     this.getUser();
   }
-  public deleteUser(id?: number){
+  public deleteUser(username?: string){
     console.log("deleteUserLog")
-    this.http.delete(`${this.url}/${this.path}/${id}`)
+    this.http.delete(`${this.url}/${this.path}/${username}`)
       .subscribe();
     this.getUser();
   }
 
-  public updateUser(users : Users[], id?: number){
+  public updateUser(users : Users[], username?: string){
     console.log("edit")
-    this.http.patch<Users>(`${this.url}/${this.path}/${id}`, users)
+    this.http.patch<Users>(`${this.url}/${this.path}/${username}`, users)
   }
 }
