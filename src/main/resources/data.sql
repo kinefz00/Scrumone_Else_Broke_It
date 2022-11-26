@@ -1,5 +1,5 @@
 INSERT INTO APP_USER
-values ('1','Fabian.Klärer@hs-aalen.de','Fabian','Klärer', 'password', 'ADMIN','Fabi');
+values ('Fabi','Fabian.Klärer@hs-aalen.de','Fabian','Klärer', 'password', 'ADMIN');
 /*INSERT INTO APP_USER
 values ('admin1', 'password', 'ROLE_ADMIN');*/
 

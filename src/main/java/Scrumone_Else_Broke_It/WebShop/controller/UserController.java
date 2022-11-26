@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
-    private final UserDetailsService userDetailsService;
+    UserDetailsService userDetailsService;
 
     @Autowired
     public UserController(UserDetailsService userDetailsService) {
@@ -27,9 +27,9 @@ public class UserController {
         return userDetailsService.getAllUser();
     }
 
-    @GetMapping("/user/{id}")
-    private UserEntity getUserById(@PathVariable int id) {
-        return userDetailsService.getUserById(id);
+    @GetMapping("/user/{username}")
+    private UserEntity getUserByUsername(@PathVariable String username) {
+        return userDetailsService.getUserByUsername(username);
     }
 
     @PostMapping("/user")
@@ -38,17 +38,17 @@ public class UserController {
         return userEntity;
     }
 
-    @DeleteMapping("/user/{id}")
-    public void deleteUser(@PathVariable int id) {
-        userDetailsService.deleteUser(id);
+    @DeleteMapping("/user/{username}")
+    public void deleteUser(@PathVariable String username) {
+        userDetailsService.deleteUser(username);
     }
 
 
     
-    @PutMapping("/user/{id}")
-    public ResponseEntity<Integer> updateUser(@PathVariable int id, @RequestBody UserUpdate update) {
-        userDetailsService.update(id, update);
-        return new ResponseEntity<>(Integer.valueOf(id), HttpStatus.OK);
+    @PutMapping("/user/{username}")
+    public ResponseEntity<String> updateUser(@PathVariable String username, @RequestBody UserUpdate update) {
+        userDetailsService.update(username, update);
+        return new ResponseEntity<>(String.valueOf(username), HttpStatus.OK);
     }
 
 }

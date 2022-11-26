@@ -14,11 +14,9 @@ import javax.persistence.*;
 public class UserEntity {
     //Attributes
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int id;
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String username;
-    @Column
+    @Column(unique = true)
     private String email;
     @Column
     private String firstName;

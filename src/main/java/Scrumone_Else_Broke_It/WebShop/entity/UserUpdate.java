@@ -17,15 +17,14 @@ public class UserUpdate {
 
     private Optional<String> role;
 
-    private Optional<String> username;
 
-    public UserUpdate(String email, String firstName, String lastName, String password, String role, String username) {
+    public UserUpdate(String email, String firstName, String lastName, String password, String role) {
         this.email = Optional.of(email);
         this.firstName = Optional.of(firstName);
         this.lastName = Optional.of(lastName);
         this.password = Optional.of(password);
         this.role = Optional.of(role);
-        this.username = Optional.of(username);
+
     }
 
     public UserUpdate() {
@@ -34,7 +33,7 @@ public class UserUpdate {
         this.lastName = Optional.empty();
         this.password = Optional.empty();
         this.role = Optional.empty();
-        this.username = Optional.empty();
+
     }
 
 
@@ -79,12 +78,5 @@ public class UserUpdate {
         this.role = Optional.of(role);
     }
 
-    public Optional<String> getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = Optional.of(username);
-    }
 
 }

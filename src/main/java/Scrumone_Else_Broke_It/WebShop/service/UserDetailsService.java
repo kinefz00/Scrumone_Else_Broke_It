@@ -18,9 +18,9 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
-public class UserDetailsService {
+public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-    private final UserRepository userRepository;
+    UserRepository userRepository;
     public static Logger logger = Logger.getLogger(String.valueOf(UserController.class));
 
     @Autowired
@@ -28,14 +28,14 @@ public class UserDetailsService {
         this.userRepository = userRepository;
     }
 
-
+    @Override
     @Transactional
-    public UserDetails loadUserById(int id) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findById(id);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userEntity = userRepository.findByUsername(username);
         if (userEntity != null) {
             return new User(userEntity.getUsername(), userEntity.getPassword(), buildSimpleGrantedAuthorities(userEntity.getRole()));
         } else {
-            throw new UsernameNotFoundException("User not found with id: " + id);
+            throw new UsernameNotFoundException("User not found with username: " + username);
 
         }
 
@@ -47,8 +47,8 @@ public class UserDetailsService {
         return authorities;
     }
 
-    public Optional<UserEntity> findById(int id) {
-        return Optional.ofNullable(userRepository.findById(id));
+    public Optional<UserEntity> findByUsername(String username) {
+        return Optional.ofNullable(userRepository.findByUsername(username));
     }
 
     public void saveOrUpdate(UserEntity userEntity) {
@@ -63,14 +63,14 @@ public class UserDetailsService {
         return list;
     }
 
-    public UserEntity getUserById(int id) {
-        logger.info("Get User with \"username\". " + id);
-        return userRepository.findById(id);
+    public UserEntity getUserByUsername(String username) {
+        logger.info("Get User with \"username\". " + username);
+        return userRepository.findByUsername(username);
     }
 
-    public void deleteUser(int id) {
-        logger.info("Delete User with \"username\": " + id);
-        userRepository.deleteById(id);
+    public void deleteUser(String username) {
+        logger.info("Delete User with \"username\": " + username);
+        userRepository.deleteById(username);
     }
 
     public void edit(String username, UserEntity userEntity) {
@@ -79,8 +79,8 @@ public class UserDetailsService {
         userRepository.save(userEntity);
     }
 
-    public void update(int id, UserUpdate update) {
-        findById(id).ifPresent(x -> {
+    public void update(String username, UserUpdate update) {
+        findByUsername(username).ifPresent(x -> {
             update.getEmail().ifPresent(e -> {
                 x.setEmail(e);
             });
@@ -93,10 +93,8 @@ public class UserDetailsService {
             update.getRole().ifPresent(r -> {
                 x.setRole(r);
             });
-            update.getUsername().ifPresent(u -> {
-                x.setUsername(u);
-            });
-            logger.info("Edit \"Product\" with id: " + id);
+
+            logger.info("Edit \"Product\" with id: " + username);
             userRepository.save(x);
         });
     }
