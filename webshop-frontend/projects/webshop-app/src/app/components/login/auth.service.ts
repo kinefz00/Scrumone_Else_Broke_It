@@ -11,7 +11,7 @@ export class AuthenticationService {
   private path = 'user';
   // BASE_PATH: 'http://localhost:8080'
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
-
+  USER_NAME_SESSION_ATTRIBUTE_ROLE = 'userRole'
 
   constructor(private http: HttpClient) {
 
@@ -40,6 +40,7 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE);
   }
 
   isUserLoggedIn() {
@@ -53,7 +54,8 @@ export class AuthenticationService {
     let role = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     return this.http.get<any>(`${this.url}/${this.path}/${role}`).subscribe((response) => {
       console.log("Userrole: " + response.role)
-      localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, <string>response.role)
+      sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE, <string>response.role)
+      localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     });
   }
 }
