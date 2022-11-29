@@ -58,4 +58,11 @@ export class AuthenticationService {
       localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     });
   }
+  isAuthorized() {
+    return !!this.isUserLoggedIn();
+  }
+  isAdmin(){
+    return !!this.isUserLoggedIn() && sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE) === 'ADMIN';
+  }
+
 }

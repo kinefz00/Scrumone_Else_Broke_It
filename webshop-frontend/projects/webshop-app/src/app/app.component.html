@@ -1,8 +1,14 @@
 <!Doctype html>
 <html lang="ger">
 
-<div class="header">
+<!--<div class="header" *ngIf="isAdmin">
   <lib-menu-bar [title]="title" [menuBarItems]="menuItemsAdmin"></lib-menu-bar>
+</div>-->
+<div class="header" *ngIf="isAuthorized">
+<lib-menu-bar [title]="title" [menuBarItems]="menuItemsAdmin"></lib-menu-bar>
+</div>
+<div class="header" *ngIf="!isAuthorized">
+  <lib-menu-bar [title]="title" [menuBarItems]="menuItems"></lib-menu-bar>
 </div>
 <div class="content">
   <router-outlet></router-outlet>
