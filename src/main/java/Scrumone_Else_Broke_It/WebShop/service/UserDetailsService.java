@@ -93,6 +93,9 @@ public class UserDetailsService implements org.springframework.security.core.use
             update.getRole().ifPresent(r -> {
                 x.setRole(r);
             });
+            update.getPassword().ifPresent(p ->{
+                x.setPassword(p);
+            });
 
             logger.info("Edit \"Product\" with id: " + username);
             userRepository.save(x);
