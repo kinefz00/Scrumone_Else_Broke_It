@@ -13,9 +13,11 @@ export class AuthenticationService {
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
   USER_NAME_SESSION_ATTRIBUTE_ROLE = 'userRole'
 
+
   constructor(private http: HttpClient) {
 
   }
+
 
   authenticationService(username: string, password: string) {
     return this.http.get(`http://localhost:8080/public/v1/basicauth`,
@@ -38,9 +40,11 @@ export class AuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE);
+
+
   }
 
   isUserLoggedIn() {
@@ -52,10 +56,23 @@ export class AuthenticationService {
 
   getRole() {
     let role = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+
     return this.http.get<any>(`${this.url}/${this.path}/${role}`).subscribe((response) => {
       console.log("Userrole: " + response.role)
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE, <string>response.role)
       localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+
     });
+
   }
+  isAuthorized() {
+    return !!this.isUserLoggedIn();
+  }
+  isAdmin(){
+    let role= sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
+    console.log(role)
+    if (role === "ADMIN") return true
+    return false
+  }
+
 }
