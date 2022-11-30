@@ -41,17 +41,21 @@ export class UsersHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-    this.getUser();
-  }
-  public deleteUser(username?: string){
-    console.log("deleteUserLog")
-    this.http.delete(`${this.url}/${this.path}/${username}`)
-      .subscribe();
+    window.location.reload();
     this.getUser();
   }
 
-  public updateUser(users : Users[], username?: string){
+  public deleteUser(username?: string) {
+    console.log("deleteUserLog")
+    this.http.delete(`${this.url}/${this.path}/${username}`)
+      .subscribe();
+    window.location.reload();
+    this.getUser();
+  }
+
+  public updateUser(users: Users[], username?: string) {
     console.log("edit")
     this.http.patch<Users>(`${this.url}/${this.path}/${username}`, users)
+    window.location.reload();
   }
 }
