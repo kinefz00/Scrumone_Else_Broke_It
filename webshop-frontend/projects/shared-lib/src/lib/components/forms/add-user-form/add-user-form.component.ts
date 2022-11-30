@@ -32,5 +32,6 @@ export class AddUserFormComponent implements OnInit {
     console.log('>>>> ', this.addUserForm.value);
     this.usersHttpService.postUser(this.addUserForm.value);
     this.userAdded.emit();
+    window.location.reload();
   }
 }

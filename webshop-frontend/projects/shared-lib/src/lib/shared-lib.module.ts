@@ -17,14 +17,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AddUserDialogComponent } from './components/dialogs/add-user-dialog/add-user-dialog.component';
+import { EditUserDialogComponent} from "./components/dialogs/edit-user-dialog/edit-user-dialog.component";
 import { MatSelectModule } from '@angular/material/select';
 import { AddUserFormComponent } from './components/forms/add-user-form/add-user-form.component';
+import { EditUserFormComponent} from "./components/forms/edit-user-form/edit-user-form.component";
 
 @NgModule({
   declarations: [
     MenuBarComponent,
     AddUserDialogComponent,
     AddUserFormComponent,
+    EditUserFormComponent,
+    EditUserDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
