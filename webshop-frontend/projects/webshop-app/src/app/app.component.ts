@@ -48,6 +48,14 @@ export class AppComponent {
       name: 'Users',
       routePath: 'users', // Routing-Pfad -> app-routing.module
     },
+    {
+      name: 'Admin',
+      routePath:'',
+    },
+    {
+      name:'Authorized',
+      routePath:'',
+    }
   ];
   public menuItemsUser: MenuBarItem[] = [
     {
@@ -66,6 +74,10 @@ export class AppComponent {
       name: 'Profile',
       routePath: 'profile', // Routing-Pfad -> app-routing.module
     },
+    {
+      name:'Authorized',
+      routePath:'',
+    }
 
   ];
 
