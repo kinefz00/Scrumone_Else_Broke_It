@@ -52,11 +52,12 @@ export class UsersHttpService {
     window.location.reload();
   }
 
-   public updateUser(username: string, users?: Users[]){
-     console.log(users)
-     this.http.patch<Users>(`${this.url}/${this.path}/${username}`, users)
+   public editUser(users?: Users[], username?: string ){
+     console.log("edit", username)
+     this.http.put<Users>(`${this.url}/${this.path}/${username}`, users)
        .subscribe((res) => {
          console.log(res);
        });
+     window.location.reload();
    }
 }

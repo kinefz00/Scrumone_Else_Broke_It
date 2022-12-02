@@ -38,8 +38,8 @@ export class EditUserFormComponent implements OnInit {
   }
 
   public submit() {
-    console.log('>>>> ', this.editUserForm.value);
-    this.usersHttpService.updateUser(this.editUserForm.value);
+    console.log('>>>> ', this.editUserForm.value, this.user.username);
+    this.usersHttpService.editUser(this.editUserForm.value, this.user.username);
     this.userEdited.emit();
 
   }
