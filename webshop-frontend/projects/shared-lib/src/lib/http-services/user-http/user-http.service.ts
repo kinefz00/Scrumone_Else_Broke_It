@@ -42,7 +42,7 @@ export class UsersHttpService {
         console.log(res);
       });
     window.location.reload();
-    this.getUser();
+
   }
 
   public deleteUser(username?: string) {
@@ -50,12 +50,13 @@ export class UsersHttpService {
     this.http.delete(`${this.url}/${this.path}/${username}`)
       .subscribe();
     window.location.reload();
-    this.getUser();
   }
 
-  public updateUser(users: Users[], username?: string) {
-    console.log("edit")
-    this.http.patch<Users>(`${this.url}/${this.path}/${username}`, users)
-    window.location.reload();
-  }
+   public updateUser(users : Users[], username?: string){
+     console.log("edit")
+     this.http.put<Users>(`${this.url}/${this.path}/${username}`, users)
+       .subscribe((res) => {
+         console.log(res);
+       });
+   }
 }

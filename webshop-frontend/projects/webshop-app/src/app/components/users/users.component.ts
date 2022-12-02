@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { AddUserDialogComponent } from 'projects/shared-lib/src/lib/components/dialogs/add-user-dialog/add-user-dialog.component';
+import { EditUserDialogComponent} from "../../../../../shared-lib/src/lib/components/dialogs/edit-user-dialog/edit-user-dialog.component";
 import {Users} from 'projects/shared-lib/src/lib/models';
 import {
   UsersHttpService,
-  UserResponse,
 } from 'projects/shared-lib/src/public-api';
 
 @Component({
@@ -28,6 +28,7 @@ export class UsersComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public userHttpService: UsersHttpService,
+
   ) {}
 
   ngOnInit(): void {
@@ -48,4 +49,15 @@ export class UsersComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
+  public openEditUserDialog(user: any) {
+    console.log("editdialog", user)
+    let dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {user}
+    const dialogRef = this.dialog.open(EditUserDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
 }

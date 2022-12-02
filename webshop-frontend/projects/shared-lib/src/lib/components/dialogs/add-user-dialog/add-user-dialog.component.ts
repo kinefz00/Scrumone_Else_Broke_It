@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 
 @Component({
@@ -8,7 +8,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-user-dialog.component.css'],
 })
 export class AddUserDialogComponent implements OnInit {
-  constructor(private dialogRef: MatDialogRef<AddUserDialogComponent>,) {}
+  constructor(private dialogRef: MatDialogRef<AddUserDialogComponent>,
+              ) {}
 
   ngOnInit(): void {
   }
