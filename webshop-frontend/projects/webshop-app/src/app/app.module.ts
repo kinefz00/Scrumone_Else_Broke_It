@@ -32,6 +32,7 @@ import {LoginComponent} from './components/login/login.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {MessagesComponent} from './components/messages/messages.component';
 import { FormsModule} from "@angular/forms";
+import { MatDialogRef} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [

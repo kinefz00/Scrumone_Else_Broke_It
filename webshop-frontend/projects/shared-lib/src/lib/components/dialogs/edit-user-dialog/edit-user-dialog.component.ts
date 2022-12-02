@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Users} from "../../../models";
 
 
 @Component({
@@ -8,9 +9,15 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./edit-user-dialog.component.css'],
 })
 export class EditUserDialogComponent implements OnInit {
-  constructor(private dialogRef: MatDialogRef<EditUserDialogComponent>,) {}
+  public user!: Users;
+  constructor(private dialogRef: MatDialogRef<EditUserDialogComponent>,
+              @Inject(MAT_DIALOG_DATA)
+              public data: any) {}
 
   ngOnInit(): void {
+    console.log("user:",this.data.user);
+    console.log("data:",this.data);
+    this.user = this.data.user;
   }
 
   public close() {

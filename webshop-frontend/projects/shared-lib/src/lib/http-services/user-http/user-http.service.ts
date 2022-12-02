@@ -52,15 +52,11 @@ export class UsersHttpService {
 
    public updateUser(users : Users[], username?: string){
      console.log("edit")
-     this.http.patch<Users>(`${this.url}/${this.path}/${username}`, users)
-       .subscribe()
-   }
+     this.http.put<Users>(`${this.url}/${this.path}/${username}`, users)
+       .subscribe((res) => {
+         console.log(res);
+       });
 
-  isEdit(){
-    return false;
-  }
-  public onEdit(username?: string){
-    this.isEdit();
-  }
+   }
 
 }
