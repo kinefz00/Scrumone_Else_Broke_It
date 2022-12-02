@@ -56,9 +56,7 @@ export class AuthenticationService {
 
   getRole() {
     let role = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-
     return this.http.get<any>(`${this.url}/${this.path}/${role}`).subscribe((response) => {
-      console.log("Userrole: " + response.role)
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE, <string>response.role)
       localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
 
@@ -70,7 +68,6 @@ export class AuthenticationService {
   }
   isAdmin(){
     let role= sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
-    console.log(role)
     if (role === "ADMIN") return true
     return false
   }

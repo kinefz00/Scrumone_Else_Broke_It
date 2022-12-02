@@ -28,7 +28,7 @@ import { EditUserFormComponent} from "./components/forms/edit-user-form/edit-use
     AddUserDialogComponent,
     AddUserFormComponent,
     EditUserFormComponent,
-    EditUserDialogComponent
+    EditUserDialogComponent,
   ],
   imports: [
     BrowserAnimationsModule,

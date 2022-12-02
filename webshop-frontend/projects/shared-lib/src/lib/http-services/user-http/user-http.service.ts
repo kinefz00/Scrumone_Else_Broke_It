@@ -46,15 +46,15 @@ export class UsersHttpService {
   }
 
   public deleteUser(username?: string) {
-    console.log("deleteUserLog")
+    console.log("deleteUserLog", username)
     this.http.delete(`${this.url}/${this.path}/${username}`)
       .subscribe();
     window.location.reload();
   }
 
-   public updateUser(users : Users[], username?: string){
-     console.log("edit")
-     this.http.put<Users>(`${this.url}/${this.path}/${username}`, users)
+   public updateUser(username: string, users?: Users[]){
+     console.log(users)
+     this.http.patch<Users>(`${this.url}/${this.path}/${username}`, users)
        .subscribe((res) => {
          console.log(res);
        });
