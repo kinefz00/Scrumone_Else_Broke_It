@@ -13,7 +13,12 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class TechnicalDetails {
-    @ManyToOne
+
+
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name= "productId", referencedColumnName = "id")
     private Product product;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,5 +28,17 @@ public class TechnicalDetails {
     private String detailTitle;
     @Column
     private String detailText;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public void assignProduct(Product product){
+        this.product = product;
+    }
 
 }

@@ -2,8 +2,11 @@ package Scrumone_Else_Broke_It.WebShop.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -11,6 +14,13 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Product {
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private Set<TechnicalDetails> technicalDetails= new HashSet<>();
+
+
+
     //Attributes
     @Id
     @Column
@@ -27,4 +37,11 @@ public class Product {
     @Column
     private double price;
 
+    public Set<TechnicalDetails> getTechnicalDetails() {
+        return technicalDetails;
+    }
+
+    public void setTechnicalDetails(Set<TechnicalDetails> technicalDetails) {
+        this.technicalDetails = technicalDetails;
+    }
 }
