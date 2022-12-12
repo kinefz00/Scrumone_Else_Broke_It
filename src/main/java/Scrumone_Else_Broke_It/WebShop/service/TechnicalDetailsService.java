@@ -6,20 +6,19 @@ import Scrumone_Else_Broke_It.WebShop.entity.TechnicalDetails;
 import Scrumone_Else_Broke_It.WebShop.repository.ProductRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.TechnicalDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
-
+@Service
 public class TechnicalDetailsService {
     public static Logger logger = Logger.getLogger(String.valueOf(TechnicalDetailsController.class));
     @Autowired
-    private TechnicalDetailsRepository technicalDetailsRepository;
+    public TechnicalDetailsRepository technicalDetailsRepository;
 
-//    @Autowired
-//    private ProductRepository productRepository;
 
     public void saveTechnicalDetails(TechnicalDetails technicalDetails){
         logger.info("Angelegt");

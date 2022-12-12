@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class TechnicalDetailsController {
-
+    @Autowired
     TechnicalDetailsService technicalDetailsService;
-
+    @Autowired
     ProductService productService;
 
     @GetMapping("/technicalDetails")
@@ -49,7 +49,7 @@ public class TechnicalDetailsController {
     }
 
     @PutMapping("/{technicalDetailsId}/product/{productId}")
-    public TechnicalDetails assignTechnicalDetailsToProduct(
+    public void assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ){
@@ -57,7 +57,6 @@ public class TechnicalDetailsController {
         Product product = productService.getProductById(productId);
         technicalDetails.assignProduct(product);
         technicalDetailsService.saveTechnicalDetails(technicalDetails);
-        return null;
     }
 
 
