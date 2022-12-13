@@ -3,22 +3,27 @@ package Scrumone_Else_Broke_It.WebShop.entity;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
+@NoArgsConstructor
 @Entity
-@Table
+@Table(name = "TechnicalDetails")
 @Getter
 @Setter
-public class TechnicalDetails {
+public class TechnicalDetails implements Serializable {
 
 
 
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "productId", referencedColumnName = "id")
+    @JsonIgnore
     private Product product;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

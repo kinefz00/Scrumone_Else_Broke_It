@@ -53,10 +53,7 @@ public class TechnicalDetailsController {
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ){
-        TechnicalDetails technicalDetails = technicalDetailsService.getTechnicalDetailsById(technicalDetailsId);
-        Product product = productService.getProductById(productId);
-        technicalDetails.assignProduct(product);
-        technicalDetailsService.saveTechnicalDetails(technicalDetails);
+        this.technicalDetailsService.assignTechnicalDetailsToProduct(technicalDetailsId, productId);
     }
 
 

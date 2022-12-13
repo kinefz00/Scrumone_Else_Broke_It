@@ -5,6 +5,7 @@ import lombok.Setter;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 @Table
 @Getter
 @Setter
-public class Product {
+public class Product implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "product")
