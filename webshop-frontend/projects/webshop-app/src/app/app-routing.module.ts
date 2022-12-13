@@ -6,6 +6,7 @@ import { UsersComponent} from './components/users/users.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent} from './components/logout/logout.component';
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
+import {ProductManagementComponent} from "./components/productManagement/productManagement.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+  },
+  {
+    path: "productManagement",
+    component: ProductManagementComponent,
   },
   {
     path: 'detail/:id',
