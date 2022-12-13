@@ -50,12 +50,12 @@ export class ProductHttpService {
     window.location.reload();
   }
 
-  public editProduct(product?: Product[], id?: number ){
+  public editProduct(product?: Product[], id?: any){
     console.log("edit", id)
     this.http.put<Product>(`${this.url}/${this.path}/${id}`, id)
       .subscribe((res) => {
         console.log(res);
       });
-    window.location.reload();
+    // window.location.reload();
   }
 }

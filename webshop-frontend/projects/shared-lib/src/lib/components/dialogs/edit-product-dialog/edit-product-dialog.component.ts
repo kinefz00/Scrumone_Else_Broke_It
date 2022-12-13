@@ -4,7 +4,7 @@ import {Product} from "../../../models";
 
 
 @Component({
-  selector: 'lib-add-product',
+  selector: 'lib-edit-product',
   templateUrl: './edit-product-dialog.component.html',
   styleUrls: ['./edit-product-dialog.component.css'],
 })

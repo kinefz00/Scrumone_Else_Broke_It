@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { AddProductDialogComponent } from 'projects/shared-lib/src/lib/components/dialogs/add-product-dialog/add-product-dialog.component';
-// import { EditProductDialogComponent} from "../../../../../shared-lib/src/lib/components/dialogs/edit-user-dialog/edit-user-dialog.component";
+import { EditProductDialogComponent} from "../../../../../shared-lib/src/lib/components/dialogs/edit-product-dialog/edit-product-dialog.component";
 import {Product} from 'projects/shared-lib/src/lib/models';
 import {
   ProductHttpService,
@@ -51,15 +51,15 @@ export class ProductManagementComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
-  // public openEditProductDialog(product: any) {
-  //   console.log("editdialog", product)
-  //   let dialogConfig = new MatDialogConfig();
-  //
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.data = {product}
-  //   const dialogRef = this.dialog.open(EditProductDialogComponent, dialogConfig);
-  //
-  //   dialogRef.afterClosed().subscribe((result) => {});
-  // }
+  public openEditProductDialog(product: any) {
+    console.log("editdialog", product)
+    let dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {product}
+    const dialogRef = this.dialog.open(EditProductDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
 
 }

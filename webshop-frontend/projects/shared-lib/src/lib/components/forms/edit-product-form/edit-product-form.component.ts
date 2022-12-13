@@ -25,6 +25,7 @@ export class EditProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.editProductForm = this.formBuilder.group({
+      id: [this.product.id],
       name: [this.product.name, Validators.required], //user.username über input
       price: [this.product.price],
       currency: [this.product.currency],

@@ -24,7 +24,7 @@ import { EditUserFormComponent} from "./components/forms/edit-user-form/edit-use
 import {AddProductFormComponent} from "./components/forms/add-product-form/add-product-form.component";
 import {AddProductDialogComponent} from "./components/dialogs/add-product-dialog/add-product-dialog.component";
 import {EditProductDialogComponent} from "./components/dialogs/edit-product-dialog/edit-product-dialog.component";
-import {EditProductFormComponent} from "./components/forms/edit-product-form/edit-product-from.component";
+import {EditProductFormComponent} from "./components/forms/edit-product-form/edit-product-form.component";
 
 @NgModule({
   declarations: [
