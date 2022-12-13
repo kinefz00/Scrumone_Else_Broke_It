@@ -21,6 +21,10 @@ import { EditUserDialogComponent} from "./components/dialogs/edit-user-dialog/ed
 import { MatSelectModule } from '@angular/material/select';
 import { AddUserFormComponent } from './components/forms/add-user-form/add-user-form.component';
 import { EditUserFormComponent} from "./components/forms/edit-user-form/edit-user-form.component";
+import {AddProductFormComponent} from "./components/forms/add-product-form/add-product-form.component";
+import {AddProductDialogComponent} from "./components/dialogs/add-product-dialog/add-product-dialog.component";
+import {EditProductDialogComponent} from "./components/dialogs/edit-product-dialog/edit-product-dialog.component";
+import {EditProductFormComponent} from "./components/forms/edit-product-form/edit-product-form.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { EditUserFormComponent} from "./components/forms/edit-user-form/edit-use
     AddUserFormComponent,
     EditUserFormComponent,
     EditUserDialogComponent,
+    AddProductFormComponent,
+    AddProductDialogComponent,
+    EditProductDialogComponent,
+    EditProductFormComponent,
   ],
   imports: [
     BrowserAnimationsModule,

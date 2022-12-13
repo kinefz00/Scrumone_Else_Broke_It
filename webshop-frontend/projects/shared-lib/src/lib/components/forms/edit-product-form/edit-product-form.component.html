@@ -1,0 +1,44 @@
+<div class="content-container">
+
+  <form class="form" [formGroup]="editProductForm" (submit)="submit()">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Produkt Name</mat-label>
+      <input matInput formControlName="name" placeholder="getProduct.name"/>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Preis</mat-label>
+      <input matInput formControlName="price" placeholder="getProduct.price"/>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Waehrung</mat-label>
+      <input matInput formControlName="currency" placeholder="getProduct.currency"/>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Beschreibung</mat-label>
+      <input matInput formControlName="description" placeholder="getProduct.description"/>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Kategorie</mat-label>
+      <input matInput formControlName="category" placeholder="getProduct.category"/>
+    </mat-form-field>
+
+   <!-- <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Role</mat-label>
+      <input matInput formControlName="role" placeholder="getUser.role"/>
+    </mat-form-field>-->
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!editProductForm.valid"
+    >
+      Absenden
+    </button>
+
+  </form>
+</div>

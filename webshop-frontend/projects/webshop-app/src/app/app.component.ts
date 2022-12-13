@@ -50,7 +50,7 @@ export class AppComponent {
     },
     {
       name: 'Admin',
-      routePath:'',
+      routePath:'productManagement',
     },
     {
       name:'Authorized',

@@ -6,6 +6,6 @@ INSERT INTO APP_USER
 values('Toni', 'toni.zubac@studmain.hs-aalen.de','Toni', 'Zubac', 'password','PUSER');
 
 insert into product
-values ('1', 'Electronics', '€', 'Personal use Gaming computer', 'PC', 1200.98);
+values (1, 'Electronics', '€', 'Personal use Gaming computer', 'PC', 1200.98);
 insert into impressum
-values ('1', 'Hier könnte das Impressum stehen');
+values (1, 'Hier könnte das Impressum stehen');

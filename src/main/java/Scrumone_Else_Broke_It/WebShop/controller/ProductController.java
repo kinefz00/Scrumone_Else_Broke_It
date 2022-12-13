@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     private final ProductService productService;
+
     @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
@@ -46,11 +47,6 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
-
-/*    @PutMapping("/product/{id}")
-    public void editProduct(@PathVariable int id, @RequestBody Product product) {
-        productService.edit(id, product);
-    }*/
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/product/{id}")
