@@ -34,6 +34,7 @@ export class EditUserFormComponent implements OnInit {
       email: [this.user.email, Validators.email],
       password: [this.user.password, Validators.required],
       role: [this.user.role],
+      discount:[this.user.discount],
     });
   }
 
