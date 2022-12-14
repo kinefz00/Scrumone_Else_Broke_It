@@ -35,6 +35,7 @@ export class UsersHttpService {
     return this.http.get<Users[]>(`${this.url}/${this.path}`);
   }
 
+
   public postUser(users: Users[]) {
     console.log("Postlog", users)
     this.http.post<Users>(`${this.url}/${this.path}`, users)

@@ -34,6 +34,7 @@ import {MessagesComponent} from './components/messages/messages.component';
 import { FormsModule} from "@angular/forms";
 import { MatDialogRef} from "@angular/material/dialog";
 import {ProductManagementComponent} from "./components/productManagement/productManagement.component";
+import {ProfileComponent} from "./components/profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {ProductManagementComponent} from "./components/productManagement/product
     LogoutComponent,
     MessagesComponent,
     ProductManagementComponent,
+    ProfileComponent,
   ],
   imports: [
     FormsModule,
