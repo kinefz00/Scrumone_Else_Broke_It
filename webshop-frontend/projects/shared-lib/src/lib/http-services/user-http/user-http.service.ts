@@ -41,7 +41,7 @@ export class UsersHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-    window.location.reload();
+    // window.location.reload();
 
   }
 
@@ -49,7 +49,7 @@ export class UsersHttpService {
     console.log("deleteUserLog", username)
     this.http.delete(`${this.url}/${this.path}/${username}`)
       .subscribe();
-    window.location.reload();
+    // window.location.reload();
   }
 
   public editUser(users?: Users[], username?: string) {

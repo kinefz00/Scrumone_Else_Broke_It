@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {NgForm} from "@angular/forms";
 
 
 @Component({
@@ -9,7 +10,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 })
 export class AddUserDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<AddUserDialogComponent>,
-              ) {}
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -17,6 +19,5 @@ export class AddUserDialogComponent implements OnInit {
   public close() {
     this.dialogRef.close();
   }
-
 
 }

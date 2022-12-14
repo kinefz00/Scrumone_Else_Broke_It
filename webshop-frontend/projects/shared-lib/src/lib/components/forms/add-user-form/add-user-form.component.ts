@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {UserLogicService} from '../../../logic-services/user-logic.service';
 import {UsersHttpService} from "../../../http-services";
 
@@ -13,6 +13,7 @@ export class AddUserFormComponent implements OnInit {
 
   public addUserForm: FormGroup = this.formBuilder.group({
     username: ['', Validators.required],
+    discount: [''],
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
     email: [null, [Validators.required, Validators.email]],
@@ -30,10 +31,18 @@ export class AddUserFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public handleSubmit() {
+    if (this.addUserForm.value.role === "PUSER") {
+      this.addUserForm.value.discount = 10;
+    } else {
+      this.addUserForm.value.discount = 0;
+
+    }
+  }
   public submit() {
+    this.handleSubmit();
     console.log('>>>> ', this.addUserForm.value);
     this.usersHttpService.postUser(this.addUserForm.value);
     this.userAdded.emit();
-    window.location.reload();
   }
 }

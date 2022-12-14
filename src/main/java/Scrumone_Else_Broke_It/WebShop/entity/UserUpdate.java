@@ -17,8 +17,11 @@ public class UserUpdate {
 
     private Optional<String> role;
 
+    private Optional<Double> discount;
 
-    public UserUpdate(String email, String firstName, String lastName, String password, String role) {
+
+    public UserUpdate(String email, String firstName, String lastName, String password, String role, double discount) {
+        this.discount = Optional.of(discount);
         this.email = Optional.of(email);
         this.firstName = Optional.of(firstName);
         this.lastName = Optional.of(lastName);
@@ -28,6 +31,7 @@ public class UserUpdate {
     }
 
     public UserUpdate() {
+        this.discount = Optional.empty();
         this.email = Optional.empty();
         this.firstName = Optional.empty();
         this.lastName = Optional.empty();
@@ -78,5 +82,11 @@ public class UserUpdate {
         this.role = Optional.of(role);
     }
 
+    public Optional<Double> getDiscount() {
+        return discount;
+    }
 
+    public void setDiscount(double discount){
+        this.discount = Optional.of(discount);
+    }
 }
