@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 import {Impressum} from "../../models";
 
 export interface ImpressumResponse {
@@ -28,7 +28,8 @@ export class ImpressumHttpService {
   private url = 'http://localhost:8080';
   private path = 'impressum';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public getImpressum(queryParams?: any): Observable<Impressum[]> {
     return this.http.get<Impressum[]>(`${this.url}/${this.path}`);

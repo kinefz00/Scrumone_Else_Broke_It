@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'projects/shared-lib/src/lib/models';
+import {Component, OnInit} from '@angular/core';
+import {Product} from 'projects/shared-lib/src/lib/models';
 import {
   ProductHttpService,
   ProductResponse,
@@ -15,7 +15,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productsService: ProductHttpService // DependencyInjection
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.productsService

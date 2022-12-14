@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Users } from './users.interfaces';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Users} from './users.interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserLogicService {
-  private users: Users[] =[];
+  private users: Users[] = [];
 
   public userList$: BehaviorSubject<Users[]> = new BehaviorSubject<Users[]>(
     this.users
   );
 
-  constructor() {}
+  constructor() {
+  }
 
   public addUser(user: Users): void {
     this.users.push(user);

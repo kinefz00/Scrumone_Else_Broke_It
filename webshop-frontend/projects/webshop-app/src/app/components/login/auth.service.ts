@@ -63,11 +63,13 @@ export class AuthenticationService {
     });
 
   }
+
   isAuthorized() {
     return !!this.isUserLoggedIn();
   }
-  isAdmin(){
-    let role= sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
+
+  isAdmin() {
+    let role = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
     if (role === "ADMIN") return true
     return false
   }

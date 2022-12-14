@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ImpressumComponent } from './components/impressum/impressum.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
-import { UsersComponent} from './components/users/users.component';
-import { LoginComponent } from './components/login/login.component';
-import { LogoutComponent} from './components/logout/logout.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ImpressumComponent} from './components/impressum/impressum.component';
+import {ProductListComponent} from './components/product-list/product-list.component';
+import {UsersComponent} from './components/users/users.component';
+import {LoginComponent} from './components/login/login.component';
+import {LogoutComponent} from './components/logout/logout.component';
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {ProductManagementComponent} from "./components/productManagement/productManagement.component";
 
@@ -53,4 +53,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

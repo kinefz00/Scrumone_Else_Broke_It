@@ -50,11 +50,11 @@ export class AppComponent {
     },
     {
       name: 'Admin',
-      routePath:'productManagement',
+      routePath: 'productManagement',
     },
     {
-      name:'Authorized',
-      routePath:'',
+      name: 'Authorized',
+      routePath: '',
     }
   ];
   public menuItemsUser: MenuBarItem[] = [
@@ -75,8 +75,8 @@ export class AppComponent {
       routePath: 'profile', // Routing-Pfad -> app-routing.module
     },
     {
-      name:'Authorized',
-      routePath:'',
+      name: 'Authorized',
+      routePath: '',
     }
 
   ];
