@@ -21,9 +21,7 @@ public class TechnicalDetails implements Serializable {
 
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name= "productId", referencedColumnName = "id")
-    @JsonIgnore
+    @ManyToOne
     private Product product;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

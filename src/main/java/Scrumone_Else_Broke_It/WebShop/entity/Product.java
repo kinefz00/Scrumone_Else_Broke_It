@@ -16,11 +16,6 @@ import java.util.Set;
 @Setter
 public class Product implements Serializable {
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "product")
-    private Set<TechnicalDetails> technicalDetails= new HashSet<>();
-
-
 
     //Attributes
     @Id
@@ -38,11 +33,5 @@ public class Product implements Serializable {
     @Column
     private double price;
 
-    public Set<TechnicalDetails> getTechnicalDetails() {
-        return technicalDetails;
-    }
 
-    public void setTechnicalDetails(Set<TechnicalDetails> technicalDetails) {
-        this.technicalDetails = technicalDetails;
-    }
 }

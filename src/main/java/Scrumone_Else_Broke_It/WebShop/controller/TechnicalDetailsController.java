@@ -31,9 +31,9 @@ public class TechnicalDetailsController {
 
 
     @PostMapping("/technicalDetails")
-    public TechnicalDetails saveTechnicalDetails(@RequestBody TechnicalDetails technicalDetails) {
+    public void saveTechnicalDetails(@RequestBody TechnicalDetails technicalDetails) {
         technicalDetailsService.saveTechnicalDetails(technicalDetails);
-        return technicalDetails;
+
     }
 
 
