@@ -1,7 +1,9 @@
 package Scrumone_Else_Broke_It.WebShop.controller;
 
 
+import Scrumone_Else_Broke_It.WebShop.entity.Product;
 import Scrumone_Else_Broke_It.WebShop.entity.TechnicalDetails;
+import Scrumone_Else_Broke_It.WebShop.service.ProductService;
 import Scrumone_Else_Broke_It.WebShop.service.TechnicalDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,10 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class TechnicalDetailsController {
-
+    @Autowired
     TechnicalDetailsService technicalDetailsService;
+    @Autowired
+    ProductService productService;
 
     @GetMapping("/technicalDetails")
     private List<TechnicalDetails> getAllTechnicalDetails() {
@@ -27,9 +31,9 @@ public class TechnicalDetailsController {
 
 
     @PostMapping("/technicalDetails")
-    public TechnicalDetails saveTechnicalDetails(@RequestBody TechnicalDetails technicalDetails) {
+    public void saveTechnicalDetails(@RequestBody TechnicalDetails technicalDetails) {
         technicalDetailsService.saveTechnicalDetails(technicalDetails);
-        return technicalDetails;
+
     }
 
 
@@ -44,6 +48,13 @@ public class TechnicalDetailsController {
         technicalDetailsService.edit(id, technicalDetails);
     }
 
+    @PutMapping("/{technicalDetailsId}/product/{productId}")
+    public void assignTechnicalDetailsToProduct(
+            @PathVariable int technicalDetailsId,
+            @PathVariable int productId
+    ){
+        this.technicalDetailsService.assignTechnicalDetailsToProduct(technicalDetailsId, productId);
+    }
 
 
 }

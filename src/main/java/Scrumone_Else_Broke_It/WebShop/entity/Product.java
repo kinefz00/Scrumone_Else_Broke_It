@@ -2,15 +2,21 @@ package Scrumone_Else_Broke_It.WebShop.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
 @Table
 @Getter
 @Setter
-public class Product {
+public class Product implements Serializable {
+
+
     //Attributes
     @Id
     @Column
@@ -26,5 +32,6 @@ public class Product {
     private String name;
     @Column
     private double price;
+
 
 }
