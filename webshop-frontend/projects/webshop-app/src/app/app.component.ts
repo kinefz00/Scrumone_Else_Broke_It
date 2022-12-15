@@ -15,7 +15,7 @@ export class AppComponent {
   // Menüpunkte in der oberen Menüleiste -> Array von MenubarItems
   public menuItems: MenuBarItem[] = [
     {
-      name: 'login',
+      name: 'Login',
       routePath: 'login'
     },
     {
@@ -26,14 +26,11 @@ export class AppComponent {
       name: 'Impressum',
       routePath: 'impressum', // Routing-Pfad -> app-routing.module
     },
-    {
-      name: 'Profile',
-      routePath: 'logout', // Routing-Pfad -> app-routing.module
-    },
+
   ];
   public menuItemsAdmin: MenuBarItem[] = [
     {
-      name: 'logout',
+      name: 'Logout',
       routePath: 'logout'
     },
     {
@@ -59,7 +56,7 @@ export class AppComponent {
   ];
   public menuItemsUser: MenuBarItem[] = [
     {
-      name: 'logout',
+      name: 'Logout',
       routePath: 'logout'
     },
     {
