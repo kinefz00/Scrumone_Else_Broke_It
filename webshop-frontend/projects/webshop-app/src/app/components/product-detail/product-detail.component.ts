@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-
+  USER_NAME_SESSION_ATTRIBUTE_DISCOUNT = 'userDiscount'
   constructor(
     private productService: ProductHttpService,
     private activatedRoute: ActivatedRoute,
@@ -27,6 +27,12 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProducts('products').subscribe((res: any) => {
       this.products = res
       this.products = this.products.filter((data: any) => data.id == id);
+      console.log(this.products)
+      let discount = Number(sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT));
+      this.products.forEach(function (product){
+        product.price = Number(((1-discount/100)*product.price).toFixed(2));
+        console.log(typeof product.price)
+      })
       if (this.products.length <= 0) {
         this.router.navigateByUrl('');
       }

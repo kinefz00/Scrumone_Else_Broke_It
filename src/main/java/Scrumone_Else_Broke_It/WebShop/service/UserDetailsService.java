@@ -96,6 +96,10 @@ public class UserDetailsService implements org.springframework.security.core.use
             update.getPassword().ifPresent(p ->{
                 x.setPassword(p);
             });
+            update.getDiscount().ifPresent(d ->{
+                x.setDiscount(d);
+            });
+
 
             logger.info("Edit \"Product\" with id: " + username);
             userRepository.save(x);

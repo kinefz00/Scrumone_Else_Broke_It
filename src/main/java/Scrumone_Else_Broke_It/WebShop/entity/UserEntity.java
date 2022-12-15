@@ -26,5 +26,7 @@ public class UserEntity {
     private String password;
     @Column
     private String role;
+    @Column
+    private double discount;
 
 }
