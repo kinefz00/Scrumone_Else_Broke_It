@@ -1,7 +1,6 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,8 +16,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class TechnicalDetails implements Serializable {
-
-
 
 
     @ManyToOne
@@ -40,7 +37,7 @@ public class TechnicalDetails implements Serializable {
         this.product = product;
     }
 
-    public void assignProduct(Product product){
+    public void assignProduct(Product product) {
         this.product = product;
     }
 

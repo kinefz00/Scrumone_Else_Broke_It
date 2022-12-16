@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserLogicService } from '../../../logic-services/user-logic.service';
-import { UsersHttpService} from "../../../http-services";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserLogicService} from '../../../logic-services/user-logic.service';
+import {UsersHttpService} from "../../../http-services";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Users} from "../../../models";
 
@@ -23,18 +23,19 @@ export class EditUserFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userLogicService: UserLogicService,
     private usersHttpService: UsersHttpService,
-
-  ) {}//{this.user = {username:"", firstName:"", lastName:"",email:"",password:"",role:""}}
+  ) {
+  }//{this.user = {username:"", firstName:"", lastName:"",email:"",password:"",role:""}}
 
   ngOnInit(): void {
-      this.editUserForm = this.formBuilder.group({
-        username: [this.user.username, Validators.required], //user.username über input
-        firstName: [this.user.firstName],
-        lastName: [this.user.lastName],
-        email: [this.user.email, Validators.email],
-        password: [this.user.password, Validators.required],
-        role: [this.user.role],
-      });
+    this.editUserForm = this.formBuilder.group({
+      username: [this.user.username, Validators.required], //user.username über input
+      firstName: [this.user.firstName],
+      lastName: [this.user.lastName],
+      email: [this.user.email, Validators.email],
+      password: [this.user.password, Validators.required],
+      role: [this.user.role],
+      discount:[this.user.discount],
+    });
   }
 
   public submit() {

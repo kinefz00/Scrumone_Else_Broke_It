@@ -1,4 +1,4 @@
-export const ADD_USER_FORM_FIELDS: any[] = [
+export const ADD_User_FORM_FIELDS: any[] = [
   {
     id: 'name',
     label: 'Product name',

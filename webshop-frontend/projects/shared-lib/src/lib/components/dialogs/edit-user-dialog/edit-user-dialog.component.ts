@@ -10,13 +10,15 @@ import {Users} from "../../../models";
 })
 export class EditUserDialogComponent implements OnInit {
   public user!: Users;
+
   constructor(private dialogRef: MatDialogRef<EditUserDialogComponent>,
               @Inject(MAT_DIALOG_DATA)
-              public data: any) {}
+              public data: any) {
+  }
 
   ngOnInit(): void {
-    console.log("user:",this.data.user);
-    console.log("data:",this.data);
+    console.log("user:", this.data.user);
+    console.log("data:", this.data);
     this.user = this.data.user;
   }
 

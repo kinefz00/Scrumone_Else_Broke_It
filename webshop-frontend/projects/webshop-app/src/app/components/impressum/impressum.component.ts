@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Impressum} from "projects/shared-lib/src/public-api";
 import {
   ImpressumHttpService,
   ImpressumResponse,
 }
- from 'projects/shared-lib/src/public-api';
+  from 'projects/shared-lib/src/public-api';
 
 @Component({
   selector: 'app-impressum',
@@ -16,7 +16,8 @@ export class ImpressumComponent implements OnInit {
 
   constructor(
     private impressumService: ImpressumHttpService // DependencyInjection
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.impressumService

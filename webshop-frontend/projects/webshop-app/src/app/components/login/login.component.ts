@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from './auth.service';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {AuthenticationService} from './auth.service';
 import {MessageService} from "../../message.service";
 
 @Component({
@@ -11,7 +11,7 @@ import {MessageService} from "../../message.service";
 export class LoginComponent implements OnInit {
 
   username: string;
-  password : string;
+  password: string;
   errorMessage = 'Invalid Credentials';
   successMessage: string;
   invalidLogin = false;
@@ -36,12 +36,13 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-    this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
+    this.authenticationService.authenticationService(this.username, this.password).subscribe((result) => {
       this.authenticationService.getRole();
+      this.authenticationService.getDiscount();
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';
-      this.router.navigate(['/products']);
+      this.router.navigate(['/impressum']);
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;

@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductHttpService} from "../../../http-services";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ProductHttpService} from "../../../http-services";
 
 @Component({
   selector: 'lib-add-product-form',
@@ -21,9 +21,11 @@ export class AddProductFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productHttpService: ProductHttpService
-  ) {}
+  ) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public submit() {
     console.log('>>>> ', this.addProductForm.value);

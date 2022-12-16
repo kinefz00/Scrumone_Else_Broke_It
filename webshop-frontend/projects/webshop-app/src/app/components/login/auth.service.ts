@@ -1,6 +1,8 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {map} from 'rxjs/operators';
+import {map, retry} from 'rxjs/operators';
+import {Product} from "../../../../../shared-lib/src/lib/models";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -12,6 +14,7 @@ export class AuthenticationService {
   // BASE_PATH: 'http://localhost:8080'
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
   USER_NAME_SESSION_ATTRIBUTE_ROLE = 'userRole'
+  USER_NAME_SESSION_ATTRIBUTE_DISCOUNT = 'userDiscount'
 
 
   constructor(private http: HttpClient) {
@@ -44,9 +47,40 @@ export class AuthenticationService {
     localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE);
+    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT);
 
 
   }
+
+  getDiscount(){
+    let discount = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    return this.http.get<any>(`${this.url}/${this.path}/${discount}`).subscribe((res) =>{
+      sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT, <any>res.discount)
+      localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    });
+
+  }
+
+  // public getDiscount() {
+  //   let discount = 'Fabi';
+  //   var test;
+  //   return this.http.get<any>(`${this.url}/${this.path}/${discount}`)
+  //     .subscribe((res:Observable<any>) => {
+  //       console.log(res);
+  //       test = res;
+  //       return test;
+  //     });
+  //   // window.location.reload();
+
+  // }
+
+  // public getDiscount() {
+  //   let discount ='Fabi'
+  //   var test: any;
+  //   return this.http.get(`${this.url}/${this.path}/${discount}`).pipe((
+  //     test
+  //   ))
+  // }
 
   isUserLoggedIn() {
     let token = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
@@ -63,11 +97,13 @@ export class AuthenticationService {
     });
 
   }
+
   isAuthorized() {
     return !!this.isUserLoggedIn();
   }
-  isAdmin(){
-    let role= sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
+
+  isAdmin() {
+    let role = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
     if (role === "ADMIN") return true
     return false
   }

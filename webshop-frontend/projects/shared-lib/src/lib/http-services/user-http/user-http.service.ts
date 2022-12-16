@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Users} from "../../models";
+import {AuthenticationService} from "../../../../../webshop-app/src/app/components";
 
 export interface UserResponse {
   content: Users[];
@@ -27,8 +28,10 @@ export interface UserResponse {
 export class UsersHttpService {
   private url = 'http://localhost:8080';
   private path = 'user';
-
-  constructor(private http: HttpClient) {
+  private USER_NAME_SESSION_ATTRIBUTE_DISCOUNT = 'userDiscount';
+  private USER_NAME_SESSION_ATTRIBUTE_NAME= 'userName';
+  constructor(private http: HttpClient,
+  private authService:AuthenticationService) {
   }
 
   public getUser(queryParams?: any): Observable<Users[]> {
@@ -61,12 +64,16 @@ export class UsersHttpService {
     window.location.reload();
   }
 
-   public editUser(users?: Users[], username?: string ){
-     console.log("edit", username)
-     this.http.put<Users>(`${this.url}/${this.path}/${username}`, users)
-       .subscribe((res) => {
-         console.log(res);
-       });
-     // window.location.reload();
-   }
+  public editUser(users?: Users[], username?: string) {
+    console.log("edit", username)
+    this.http.put<Users>(`${this.url}/${this.path}/${username}`, users)
+      .subscribe((res) => {
+        console.log(res);
+        window.location.reload();
+      });
+    return this.http.get<any>(`${this.url}/${this.path}/${username}`).subscribe((res) =>{
+      sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT, <any>res.discount)
+    });
+
+  }
 }

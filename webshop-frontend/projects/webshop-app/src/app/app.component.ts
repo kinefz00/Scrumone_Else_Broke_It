@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {MenuBarItem} from 'projects/shared-lib/src/public-api';
 import {AuthenticationService} from "./components";
-import {LoginComponent} from "./components/login/login.component";
-import {LogoutComponent} from "./components/logout/logout.component";
+
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,7 @@ export class AppComponent {
   // Menüpunkte in der oberen Menüleiste -> Array von MenubarItems
   public menuItems: MenuBarItem[] = [
     {
-      name: 'login',
+      name: 'Login',
       routePath: 'login'
     },
     {
@@ -26,14 +25,11 @@ export class AppComponent {
       name: 'Impressum',
       routePath: 'impressum', // Routing-Pfad -> app-routing.module
     },
-    {
-      name: 'Profile',
-      routePath: 'logout', // Routing-Pfad -> app-routing.module
-    },
+
   ];
   public menuItemsAdmin: MenuBarItem[] = [
     {
-      name: 'logout',
+      name: 'Logout',
       routePath: 'logout'
     },
     {
@@ -50,16 +46,16 @@ export class AppComponent {
     },
     {
       name: 'Admin',
-      routePath:'productManagement',
+      routePath: 'productManagement',
     },
     {
-      name:'Authorized',
-      routePath:'',
+      name: 'Authorized',
+      routePath: '',
     }
   ];
   public menuItemsUser: MenuBarItem[] = [
     {
-      name: 'logout',
+      name: 'Logout',
       routePath: 'logout'
     },
     {
@@ -75,8 +71,8 @@ export class AppComponent {
       routePath: 'profile', // Routing-Pfad -> app-routing.module
     },
     {
-      name:'Authorized',
-      routePath:'',
+      name: 'Authorized',
+      routePath: '',
     }
 
   ];
