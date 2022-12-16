@@ -38,6 +38,15 @@ export class UsersHttpService {
     return this.http.get<Users[]>(`${this.url}/${this.path}`);
   }
 
+  /*public getUserByUsername(queryParams?: any, username?: string ){
+    this.http.get<Users>(`${this.url}/${this.path}/${username}`)
+      .subscribe((res) => {
+        //console.log(res);
+      });
+    console.log(username);
+  }*/
+
+
   public postUser(users: Users[]) {
     console.log("Postlog", users)
     this.http.post<Users>(`${this.url}/${this.path}`, users)

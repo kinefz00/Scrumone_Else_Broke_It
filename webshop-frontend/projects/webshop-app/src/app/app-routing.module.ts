@@ -7,6 +7,7 @@ import {LoginComponent} from './components/login/login.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {ProductDetailComponent} from "./components/product-detail/product-detail.component";
 import {ProductManagementComponent} from "./components/productManagement/productManagement.component";
+import {ProfileComponent} from "./components/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -39,7 +40,11 @@ const routes: Routes = [
     component: ProductManagementComponent,
   },
   {
-    path: 'detail/:id',
+    path: "profile",
+    component: ProfileComponent,
+  },
+  {
+    path: 'product/:id',
     component: ProductDetailComponent
   },
   {

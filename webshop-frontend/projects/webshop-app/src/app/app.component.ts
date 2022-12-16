@@ -85,6 +85,9 @@ export class AppComponent {
     return this.authService.isAdmin();
   }
 
+  get isUsername(){
+    return this.authService.isUsername();
+  }
 
   constructor(private authService: AuthenticationService) {
   }

@@ -27,6 +27,7 @@ export class AuthenticationService {
       {headers: {authorization: this.createBasicAuthToken(username, password)}}).pipe(map((res) => {
       localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
       this.registerSuccessfulLogin(`${window.btoa(username + ":" + password)}`);
+      console.log(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
     }));
   }
 
@@ -93,7 +94,6 @@ export class AuthenticationService {
     return this.http.get<any>(`${this.url}/${this.path}/${role}`).subscribe((response) => {
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE, <string>response.role)
       localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-
     });
 
   }
@@ -105,6 +105,12 @@ export class AuthenticationService {
   isAdmin() {
     let role = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE)
     if (role === "ADMIN") return true
+    return false
+  }
+
+  isUsername(){
+    let username= sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    if (username === this.getToken()) return true
     return false
   }
 
