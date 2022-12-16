@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {MenuBarItem} from 'projects/shared-lib/src/public-api';
 import {AuthenticationService} from "./components";
-import {LoginComponent} from "./components/login/login.component";
-import {LogoutComponent} from "./components/logout/logout.component";
+
 
 @Component({
   selector: 'app-root',
