@@ -42,10 +42,9 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent,
-    pathMatch: "full",
   },
   {
-    path: 'detail/:id',
+    path: 'product/:id',
     component: ProductDetailComponent
   },
   {

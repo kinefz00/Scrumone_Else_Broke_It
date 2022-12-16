@@ -6,6 +6,8 @@ import {Users} from 'projects/shared-lib/src/lib/models';
 import {
   UsersHttpService,
 } from 'projects/shared-lib/src/public-api';
+import {ActivatedRoute, Router} from "@angular/router";
+import {AuthenticationService} from "../login";
 
 @Component({
   selector: 'app-profile.ts',
@@ -14,6 +16,7 @@ import {
 })
 export class ProfileComponent implements OnInit {
   public userList: Users[]=[];
+  public singleUser: any;
   public resultsLength = 0;
   public displayedColumns: string[] = [
     'username',
@@ -28,27 +31,36 @@ export class ProfileComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public userHttpService: UsersHttpService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private authService: AuthenticationService,
 
   ) {}
 
+  /*ngOnInit() {
+    const username=this.authService.getUsername();
+    console.log(username)
+  }*/
   ngOnInit(): void {
-    this.userHttpService
-      .getUser()
-      .subscribe((response: Users[]) => { // Subscription auf ein "Observable" vom Type "UserResponse"
-        console.log('>>> Users ', response);
-        this.userList= response;
-      });
+    let username = "";
+    this.activatedRoute.paramMap.subscribe((data: any)=>{
+      username = data.params.username
+      console.log(username);
+    })
+    console.log(username)
+    this.userHttpService.getUser('profile').subscribe((res: any) =>{
+      this.userList = res
+      this.userList = this.userList.filter((data: any) => data.username==username);
+      if(this.userList.length<=0){
+        this.router.navigateByUrl('/profile');
+      }
+      this.singleUser = this.userList[0];
+    }, (error:any)=>{
+      console.log(error)
+    })
   }
 
-  public openAddUserDialog() {
-    let dialogConfig = new MatDialogConfig();
 
-    dialogConfig.autoFocus = true;
-
-    const dialogRef = this.dialog.open(AddUserDialogComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe((result) => {});
-  }
   public openEditUserDialog(user: any) {
     console.log("editdialog", user)
     let dialogConfig = new MatDialogConfig();
@@ -59,5 +71,6 @@ export class ProfileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
+
 
 }
