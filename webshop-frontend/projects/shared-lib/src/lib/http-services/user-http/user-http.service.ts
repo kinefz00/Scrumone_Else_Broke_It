@@ -73,6 +73,7 @@ export class UsersHttpService {
       });
     return this.http.get<any>(`${this.url}/${this.path}/${username}`).subscribe((res) =>{
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT, <any>res.discount)
+      window.location.reload();
     });
 
   }
