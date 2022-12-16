@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Simple Artist API
+  title: WebShop Api
   description: A simple API to illustrate OpenAPI concepts
 servers:
   - url: http://localhost:8080
@@ -16,7 +16,7 @@ security:
 paths:
   /product:
     get:
-      description: Returns a list of artists
+      description: Returns a list of producs
       parameters:
         - name: limit
           in: query
@@ -25,12 +25,12 @@ paths:
             type: integer
         - name: offset
           in: query
-          description: Specifies the page number of the artists to be displayed
+          description: Specifies the page number of the products to be displayed
           schema:
             type: integer
       responses:
         '200':
-          description: Successfully returned a list of artists
+          description: Successfully returned a list of products
           content:
             application/json:
               schema:
@@ -128,7 +128,7 @@ paths:
                   message:
                     type: string
     put:
-      description: Lets a user post a new artist
+      description: Lets a user update a new product
       requestBody:
         required: true
         content:
@@ -161,7 +161,7 @@ paths:
                   message:
                     type: string
     delete:
-      description: Obtain information about an artist from his or her unique username
+      description: Obtain information about an product from the unique id
       parameters:
         - name: id
           in: path
@@ -170,7 +170,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Successfully returned an artist
+          description: Successfully returned a product
           content:
             application/json:
               schema:
