@@ -18,3 +18,6 @@ values
     (1, '8kg', 'Weight', 1),
     (2, '200x75x100','Size', 1),
     (3,'100% Cotton', 'Material', 2);
+
+insert into delivery_address
+values ( 1,'oko', 7, 'Pulfrichstr', 73477, 'Fabi' ),(2,'oko', 7, 'Pulfrichstr', 73433, 'Fabi' )

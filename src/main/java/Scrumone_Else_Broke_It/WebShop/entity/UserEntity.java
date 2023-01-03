@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -29,4 +30,6 @@ public class UserEntity {
     @Column
     private double discount;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<DeliveryAddress> deliveryAddresses;
 }

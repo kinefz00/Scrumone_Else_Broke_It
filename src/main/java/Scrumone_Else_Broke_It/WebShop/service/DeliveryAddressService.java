@@ -21,8 +21,6 @@ public class DeliveryAddressService {
     public static Logger logger = Logger.getLogger(String.valueOf(TechnicalDetailsController.class));
     @Autowired
     public DeliveryAddressRepository deliveryAddressRepository;
-    @Autowired
-    public UserRepository userRepository;
 
 
     public void saveDeliveryAddress(DeliveryAddress deliveryAddress){
@@ -55,14 +53,5 @@ public class DeliveryAddressService {
         deliveryAddressRepository.save(deliveryAddress);
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
-    public DeliveryAddress assignDeliveryAddressToUser(
-            @PathVariable int deliveryAddressId,
-            @PathVariable String username
-    ){
-        DeliveryAddress deliveryAddress = deliveryAddressRepository.findById(deliveryAddressId).get();
-        UserEntity user = userRepository.findById(username).get();
-        deliveryAddress.assignUser(user);
-        return deliveryAddressRepository.save(deliveryAddress);
 
-    }
 }

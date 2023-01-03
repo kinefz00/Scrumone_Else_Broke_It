@@ -28,17 +28,7 @@ public class Product implements Serializable {
     private String name;
     @Column
     private double price;
-    /*public TechnicalDetails getTechnicaldetails() {
-        return technicalDetails;
-    }
 
-    public void setTechnicalDetails(TechnicalDetails technicalDetails) {
-        this.technicalDetails = technicalDetails;
-    }
-
-    public void assignTechnicalDetails(TechnicalDetails technicalDetails) {
-        this.technicalDetails = technicalDetails;
-    }*/
     @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<TechnicalDetails> details;
 

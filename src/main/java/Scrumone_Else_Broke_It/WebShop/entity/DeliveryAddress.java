@@ -1,5 +1,6 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.userdetails.User;
@@ -14,6 +15,8 @@ import javax.persistence.*;
 public class DeliveryAddress {
 
     @ManyToOne
+    @JoinColumn(name = "username", referencedColumnName = "username", nullable = false)
+    @JsonIgnore
     private UserEntity user;
 
     @Id
@@ -28,18 +31,5 @@ public class DeliveryAddress {
     private String street;
     @Column
     private int zipCode;
-
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
-
-    public void assignUser(UserEntity user) {
-        this.user = user;
-    }
 
 }

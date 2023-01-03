@@ -14,8 +14,6 @@ public class DeliveryAddressController {
 
     @Autowired
     DeliveryAddressService deliveryAddressService;
-    @Autowired
-    DeliveryAddressRepository deliveryAddressRepository;
 
     @GetMapping("/deliveryAddress")
     private List<DeliveryAddress> getAllDeliveryAddress() {
@@ -46,11 +44,4 @@ public class DeliveryAddressController {
         deliveryAddressService.edit(id, deliveryAddress);
     }
 
-    @PutMapping("/{deliveryAddressId}/user/{username}")
-    public void assignDeliveryAddressToUser(
-            @PathVariable int deliveryAddressId,
-            @PathVariable String username
-    ) {
-        this.deliveryAddressService.assignDeliveryAddressToUser(deliveryAddressId, username);
-    }
 }
