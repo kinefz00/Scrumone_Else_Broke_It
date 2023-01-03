@@ -16,8 +16,7 @@ import java.util.List;
 public class TechnicalDetailsController {
     @Autowired
     TechnicalDetailsService technicalDetailsService;
-    @Autowired
-    ProductService productService;
+
 
     @GetMapping("/technicalDetails")
     private List<TechnicalDetails> getAllTechnicalDetails() {
@@ -49,13 +48,13 @@ public class TechnicalDetailsController {
         technicalDetailsService.edit(id, technicalDetails);
     }
 
-    @PutMapping("/{technicalDetailsId}/product/{productId}")
+    /*@PutMapping("/{technicalDetailsId}/product/{productId}")
     public void assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
         this.technicalDetailsService.assignTechnicalDetailsToProduct(technicalDetailsId, productId);
-    }
+    }*/
 
 
 }

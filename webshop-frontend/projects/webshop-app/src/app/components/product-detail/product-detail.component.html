@@ -10,8 +10,16 @@
         <p><b>Price:</b> {{singleProduct?.price}}</p>
         <p><b>Currency:</b> {{singleProduct?.currency}}</p>
         <p><b>Description:</b> {{singleProduct?.description}}</p>
-        <p><b>Details:</b>{{singleProduct?.details}}</p>
+        <h3>Details</h3>
+        <div *ngIf="singleProduct?.details">
+          <p *ngFor="let detail of singleProduct.details">
+            <b>{{detail.detailTitle}}:</b>
+            {{detail.detailText}}
+          </p>
+        </div>
+        <span *ngIf="!singleProduct?.details?.length">No details available for this product.</span>
       </div>
+
 
 
     </div>

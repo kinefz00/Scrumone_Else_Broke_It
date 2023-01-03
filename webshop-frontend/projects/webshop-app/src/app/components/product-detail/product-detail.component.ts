@@ -27,7 +27,6 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProducts('products').subscribe((res: any) => {
       this.products = res
       this.products = this.products.filter((data: any) => data.id == id);
-      console.log(this.products)
       let discount = Number(sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT));
       this.products.forEach(function (product){
         product.price = Number(((1-discount/100)*product.price).toFixed(2));

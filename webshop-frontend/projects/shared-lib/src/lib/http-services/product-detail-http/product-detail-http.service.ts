@@ -1,10 +1,11 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ProductDetail} from '../../models';
+import {ProductDetail} from "../../models";
+
 
 export interface ProductDetailResponse {
-  content: ProductDetail[];
+  content: ProductDetail;
   pageable: string;
   totalPages: number;
   totalElements: number;

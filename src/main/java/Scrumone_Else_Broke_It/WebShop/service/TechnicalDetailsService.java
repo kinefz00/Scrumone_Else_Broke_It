@@ -18,11 +18,9 @@ public class TechnicalDetailsService {
     public static Logger logger = Logger.getLogger(String.valueOf(TechnicalDetailsController.class));
     @Autowired
     public TechnicalDetailsRepository technicalDetailsRepository;
-    @Autowired
-    public ProductRepository productRepository;
 
 
-    public void saveTechnicalDetails(TechnicalDetails technicalDetails){
+    public void saveTechnicalDetails(TechnicalDetails technicalDetails) {
         logger.info("Angelegt");
         technicalDetailsRepository.save(technicalDetails);
     }
@@ -31,7 +29,7 @@ public class TechnicalDetailsService {
     public List<TechnicalDetails> getTechnicalDetailsList() {
         List<TechnicalDetails> list = new ArrayList<>();
         Iterator<TechnicalDetails> it = technicalDetailsRepository.findAll().iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             list.add(it.next());
         }
         return list;
@@ -52,14 +50,5 @@ public class TechnicalDetailsService {
         technicalDetailsRepository.save(technicalDetails);
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
-    public TechnicalDetails assignTechnicalDetailsToProduct(
-            @PathVariable int technicalDetailsId,
-            @PathVariable int productId
-    ){
-        TechnicalDetails technicalDetails = technicalDetailsRepository.findById(technicalDetailsId).get();
-        Product product = productRepository.findById(productId).get();
-        technicalDetails.assignProduct(product);
-        return technicalDetailsRepository.save(technicalDetails);
 
-    }
 }

@@ -2,20 +2,16 @@ package Scrumone_Else_Broke_It.WebShop.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 
 @Entity
-@Table
 @Getter
 @Setter
 public class Product implements Serializable {
-
 
     //Attributes
     @Id
@@ -32,6 +28,18 @@ public class Product implements Serializable {
     private String name;
     @Column
     private double price;
+    /*public TechnicalDetails getTechnicaldetails() {
+        return technicalDetails;
+    }
 
+    public void setTechnicalDetails(TechnicalDetails technicalDetails) {
+        this.technicalDetails = technicalDetails;
+    }
+
+    public void assignTechnicalDetails(TechnicalDetails technicalDetails) {
+        this.technicalDetails = technicalDetails;
+    }*/
+    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
+    private List<TechnicalDetails> details;
 
 }

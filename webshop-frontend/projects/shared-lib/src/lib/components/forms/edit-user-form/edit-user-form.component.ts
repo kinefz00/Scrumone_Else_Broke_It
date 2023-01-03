@@ -29,12 +29,12 @@ export class EditUserFormComponent implements OnInit {
   ngOnInit(): void {
     this.editUserForm = this.formBuilder.group({
       username: [this.user.username, Validators.required], //user.username über input
-      firstName: [this.user.firstName],
-      lastName: [this.user.lastName],
+      firstName: [this.user.firstName,Validators.required],
+      lastName: [this.user.lastName, Validators.required],
       email: [this.user.email, Validators.email],
       password: [this.user.password, Validators.required],
-      role: [this.user.role],
-      discount:[this.user.discount],
+      role: [this.user.role,Validators.required],
+      discount:[this.user.discount, Validators.required],
     });
   }
 
