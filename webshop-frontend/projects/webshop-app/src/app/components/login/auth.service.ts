@@ -44,10 +44,8 @@ export class AuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE);
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT);
+    localStorage.clear();
+    sessionStorage.clear();
 
 
   }
@@ -56,7 +54,7 @@ export class AuthenticationService {
     let discount = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
     return this.http.get<any>(`${this.url}/${this.path}/${discount}`).subscribe((res) =>{
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT, <any>res.discount)
-      localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+      // localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     });
 
   }
@@ -93,7 +91,7 @@ export class AuthenticationService {
     let role = localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     return this.http.get<any>(`${this.url}/${this.path}/${role}`).subscribe((response) => {
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_ROLE, <string>response.role)
-      localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+      // localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
     });
 
   }
@@ -109,9 +107,8 @@ export class AuthenticationService {
   }
 
   isUsername(){
-    let username= sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-    if (username === this.getToken()) return true
-    return false
+    let username= localStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    return username
   }
 
 }

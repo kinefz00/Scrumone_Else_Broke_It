@@ -42,11 +42,8 @@ export class ProfileComponent implements OnInit {
     console.log(username)
   }*/
   ngOnInit(): void {
-    let username = "";
-    this.activatedRoute.paramMap.subscribe((data: any)=>{
-      username = data.params.username
-      console.log(username);
-    })
+    let username = this.authService.isUsername();
+    console.log(typeof username)
     console.log(username)
     this.userHttpService.getUser('profile').subscribe((res: any) =>{
       this.userList = res
