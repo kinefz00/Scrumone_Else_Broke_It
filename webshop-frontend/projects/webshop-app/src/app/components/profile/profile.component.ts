@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
     public userHttpService: UsersHttpService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
 
   ) {}
 
