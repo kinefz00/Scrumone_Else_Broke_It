@@ -37,7 +37,7 @@
         </ng-container>
         <ng-container matColumnDef="technicalDetails">
           <th mat-header-cell *matHeaderCellDef>Details</th>
-          <td mat-cell *matCellDef="let element">{{ element.details }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.details[0].detailText }}</td>
         </ng-container>
         <ng-container matColumnDef="options">
           <th mat-header-cell *matHeaderCellDef>Options</th>
