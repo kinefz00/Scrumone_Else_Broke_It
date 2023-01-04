@@ -25,7 +25,7 @@ export class ProductManagementComponent implements OnInit {
     'currency',
     'description',
     'category',
-    // 'technicalDetails',
+    'technicalDetails',
     'options',
   ];
 
