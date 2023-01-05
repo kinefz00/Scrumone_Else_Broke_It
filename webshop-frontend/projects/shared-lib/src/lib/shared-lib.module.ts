@@ -31,6 +31,13 @@ import {
 import {
   EditProductDetailFormComponent
 } from "./components/forms/edit-productdetail-form/edit-productdetail-form.component";
+import {
+  AddProductDetailDialogComponent
+} from "./components/dialogs/add-productdetail-dialog/add-productdetail-dialog.component";
+import {
+  AddProductDetailFormComponent
+} from "./components/forms/add-productdetail-from/add-productdetail-form.component";
+
 
 
 @NgModule({
@@ -45,7 +52,10 @@ import {
     EditProductDialogComponent,
     EditProductFormComponent,
     EditProductDetailDialogComponent,
-    EditProductDetailFormComponent
+    EditProductDetailFormComponent,
+    AddProductDetailDialogComponent,
+    AddProductDetailFormComponent,
+
   ],
   imports: [
     BrowserAnimationsModule,

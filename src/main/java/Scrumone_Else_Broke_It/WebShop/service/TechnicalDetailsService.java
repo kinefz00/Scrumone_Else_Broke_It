@@ -19,6 +19,7 @@ public class TechnicalDetailsService {
     public static Logger logger = Logger.getLogger(String.valueOf(TechnicalDetailsController.class));
     @Autowired
     public TechnicalDetailsRepository technicalDetailsRepository;
+    
 
 
     public void saveTechnicalDetails(TechnicalDetails technicalDetails) {
@@ -62,5 +63,4 @@ public class TechnicalDetailsService {
         return technicalDetailsRepository.save(technicalDetails);
 
     }
-}
 }

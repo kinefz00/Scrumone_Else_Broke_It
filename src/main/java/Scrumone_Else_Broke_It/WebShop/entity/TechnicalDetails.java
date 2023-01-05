@@ -30,5 +30,4 @@ public class TechnicalDetails implements Serializable {
     @Column
     private String detailText;
 
-
 }

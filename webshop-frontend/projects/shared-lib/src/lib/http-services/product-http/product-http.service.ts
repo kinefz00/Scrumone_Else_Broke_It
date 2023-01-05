@@ -68,4 +68,12 @@ export class ProductHttpService {
     window.location.reload();
   } // ToDo: Nicht Id vom Produkt ziehen sondern die vom Detail des Produkts
 
+  public postProductDetail(product: Product[]) {
+    console.log("Postlog", product)
+    this.http.post<Product>(`${this.url}/${this.path2}`, product)
+      .subscribe((res) => {
+        console.log(res);
+      });
+    window.location.reload();
+  }
 }

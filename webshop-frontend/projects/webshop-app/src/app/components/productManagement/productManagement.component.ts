@@ -13,6 +13,9 @@ import {
 import {
   EditProductDetailDialogComponent
 } from "../../../../../shared-lib/src/lib/components/dialogs/edit-productdetail-dialog/edit-productdetail-dialog.component";
+import {
+  AddProductDetailDialogComponent
+} from "../../../../../shared-lib/src/lib/components/dialogs/add-productdetail-dialog/add-productdetail-dialog.component";
 
 @Component({
   selector: 'app-productManagement.ts',
@@ -59,7 +62,15 @@ export class ProductManagementComponent implements OnInit {
     });
   }
   public openAddProductDetailDialog(product: any){
+    console.log("editdialog", product)
+    let dialogConfig = new MatDialogConfig();
 
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {product}
+    const dialogRef = this.dialog.open(AddProductDetailDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {
+    });
   }
   public openEditProductDialog(product: any) {
     console.log("editdialog", product)
