@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
+    'deliveryAddresses',
     'options',
   ];
 
@@ -45,13 +46,14 @@ export class ProfileComponent implements OnInit {
     let username = this.authService.isUsername();
     console.log(typeof username)
     console.log(username)
-    this.userHttpService.getUser('profile').subscribe((res: any) =>{
+    this.userHttpService.getUser('profile').subscribe((res: Users[]) =>{
       this.userList = res
       this.userList = this.userList.filter((data: any) => data.username==username);
       if(this.userList.length<=0){
         this.router.navigateByUrl('/profile');
       }
       this.singleUser = this.userList[0];
+      console.log(this.userList)
     }, (error:any)=>{
       console.log(error)
     })

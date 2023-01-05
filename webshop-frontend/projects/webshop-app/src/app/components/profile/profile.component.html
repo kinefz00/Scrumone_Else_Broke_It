@@ -30,6 +30,16 @@
           <th mat-header-cell *matHeaderCellDef>E-Mail</th>
           <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
+        <ng-container matColumnDef="deliveryAddresses">
+          <th mat-header-cell *matHeaderCellDef>Lieferadresse</th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngFor="let detail of element.deliveryAddresses"> {{detail.street}} {{detail.houseNumber}} {{detail.zipCode}} {{detail.city}}
+              <button class="btn-edit" (click)="openEditUserDialog(element)">Edit</button>
+              <button class="btn-delete" (click)="this.userHttpService.deleteUser(element.id)">Delete</button>
+              <br>
+            </span>
+          </td>
+        </ng-container>
         <ng-container matColumnDef="options">
           <th mat-header-cell *matHeaderCellDef>Options</th>
           <td mat-cell *matCellDef="let element">

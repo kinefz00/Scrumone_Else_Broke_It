@@ -49,6 +49,10 @@ export class AppComponent {
       routePath: 'productManagement',
     },
     {
+      name: 'Profile',
+      routePath: 'profile', // Routing-Pfad -> app-routing.module
+    },
+    {
       name: 'Authorized',
       routePath: '',
     }
