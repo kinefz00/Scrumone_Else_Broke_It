@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Product} from "../../../models";
+import {Product, TechnicalDetail} from "../../../models";
 
 
 @Component({
@@ -17,9 +17,9 @@ export class EditProductDetailDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("product:", this.data.product);
+    console.log("productDetails:", this.data.product.details[0].detailTitle);
     console.log("data:", this.data);
-    this.product = this.data.product;
+    this.product = this.data.product.details;
   }
 
   public close() {

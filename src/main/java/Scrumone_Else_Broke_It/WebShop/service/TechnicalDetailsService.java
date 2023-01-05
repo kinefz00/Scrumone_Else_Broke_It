@@ -53,7 +53,7 @@ public class TechnicalDetailsService {
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
 
-    public TechnicalDetails assignTechnicalDetailsToProduct(
+    /*public TechnicalDetails assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
@@ -62,5 +62,5 @@ public class TechnicalDetailsService {
         technicalDetails.assignProduct(product);
         return technicalDetailsRepository.save(technicalDetails);
 
-    }
+    }*/
 }

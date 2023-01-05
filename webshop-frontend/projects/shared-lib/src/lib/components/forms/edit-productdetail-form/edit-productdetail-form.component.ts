@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProductHttpService} from "../../../http-services";
-import {Product} from "../../../models";
+import {Product, TechnicalDetail} from "../../../models";
 
 @Component({
   selector: 'lib-edit-productdetail-form',
@@ -12,6 +12,7 @@ export class EditProductDetailFormComponent implements OnInit {
   @Output() productDetailEdited: EventEmitter<any> = new EventEmitter<any>();
   //input nimmt userobjekt entgegen (current user)
   @Input() product!: Product;
+  @Input() productDetail!: TechnicalDetail;
 
 
   public editProductDetailForm!: FormGroup;
@@ -26,13 +27,13 @@ export class EditProductDetailFormComponent implements OnInit {
   ngOnInit(): void {
     this.editProductDetailForm = this.formBuilder.group({
       // id: [this.product.id],
-      detailTitle: [this.product.details], //user.username über input
+      detailTitle: [this.product.details  ], //user.username über input
       detailText: [this.product.details],
     });
   }
 
   public submit() {
-    console.log('>>>> ', this.editProductDetailForm.value, typeof this.product.id);
+    console.log('>>>> ', this.editProductDetailForm.value, typeof this.product);
     this.productHttpService.editProduct(this.editProductDetailForm.value, 1);
     this.productDetailEdited.emit();
 

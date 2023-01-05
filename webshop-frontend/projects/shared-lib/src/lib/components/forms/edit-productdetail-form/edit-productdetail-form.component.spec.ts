@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {EditProductDetailFormComponent} from './edit-product-form.component';
+import {EditProductDetailFormComponent} from './edit-productdetail-form.component';
 
 describe('EditProductDetailFormComponent', () => {
   let component: EditProductDetailFormComponent;

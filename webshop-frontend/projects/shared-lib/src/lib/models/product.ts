@@ -12,3 +12,8 @@ export interface Product {
   category: string;
   details: Array<ProductDetail>;
 }
+
+export interface TechnicalDetail{
+  detailTitle: string;
+  detailText: string,
+}
