@@ -1,0 +1,25 @@
+<div class="content-container">
+
+  <form class="form" [formGroup]="editProductDetailForm" (submit)="submit()">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Detail Title</mat-label>
+      <input matInput formControlName="detailTitle" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Detail Text</mat-label>
+      <input matInput formControlName="detailText" />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!editProductDetailForm.valid"
+    >
+      Absenden
+    </button>
+
+  </form>
+</div>
+

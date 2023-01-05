@@ -39,8 +39,8 @@
           <th mat-header-cell *matHeaderCellDef>Details</th>
           <td mat-cell *matCellDef="let element">
             <span *ngFor="let detail of element.details"> {{detail.detailTitle }}: {{detail.detailText}}
-              <button class="btn-edit" (click)="openEditProductDialog(element)">Edit</button>
-              <button class="btn-delete" (click)="this.productHttpService.deleteProduct(element.id)">Delete</button>
+              <button class="btn-edit" (click)="openEditProductDetailDialog(element)">Edit</button>
+              <button class="btn-delete" (click)="this.productHttpService.deleteProductDetail(element.id)">Delete</button>
               <br>
             </span>
           </td>

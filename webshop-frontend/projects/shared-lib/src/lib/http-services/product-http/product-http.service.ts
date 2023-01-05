@@ -27,6 +27,7 @@ export interface ProductResponse {
 export class ProductHttpService {
   private url = 'http://localhost:8080';
   private path = 'product';
+  private path2 = 'technicalDetails';
 
   constructor(private http: HttpClient) {
   }
@@ -59,4 +60,12 @@ export class ProductHttpService {
       });
     window.location.reload();
   }
+
+  public deleteProductDetail(id?: number) {
+    console.log("deleteProductLog", typeof id)
+    this.http.delete(`${this.url}/${this.path2}/${id}`)
+      .subscribe();
+    window.location.reload();
+  } // ToDo: Nicht Id vom Produkt ziehen sondern die vom Detail des Produkts
+
 }

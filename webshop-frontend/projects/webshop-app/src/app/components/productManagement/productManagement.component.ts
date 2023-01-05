@@ -10,6 +10,9 @@ import {Product} from 'projects/shared-lib/src/lib/models';
 import {
   ProductHttpService,
 } from 'projects/shared-lib/src/public-api';
+import {
+  EditProductDetailDialogComponent
+} from "../../../../../shared-lib/src/lib/components/dialogs/edit-productdetail-dialog/edit-productdetail-dialog.component";
 
 @Component({
   selector: 'app-productManagement.ts',
@@ -65,6 +68,18 @@ export class ProductManagementComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.data = {product}
     const dialogRef = this.dialog.open(EditProductDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {
+    });
+  }
+
+  public openEditProductDetailDialog(product: any) {
+    console.log("editdialog", product)
+    let dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {product}
+    const dialogRef = this.dialog.open(EditProductDetailDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {
     });
