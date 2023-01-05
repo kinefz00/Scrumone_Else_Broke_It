@@ -43,5 +43,11 @@ public class DeliveryAddressController {
     public void editDeliveryAddress(@PathVariable int id, @RequestBody DeliveryAddress deliveryAddress) {
         deliveryAddressService.edit(id, deliveryAddress);
     }
-
+    @PutMapping("/{deliveryAddressId}/user/{username}")
+    public void assignDeliveryAddressToUser(
+            @PathVariable int deliveryAddressId,
+            @PathVariable String username
+    ) {
+        this.deliveryAddressService.assignDeliveryAddressToUser(deliveryAddressId, username);
+    }
 }

@@ -53,5 +53,14 @@ public class DeliveryAddressService {
         deliveryAddressRepository.save(deliveryAddress);
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
+    public DeliveryAddress assignDeliveryAddressToUser(
+            @PathVariable int deliveryAddressId,
+            @PathVariable String username
+    ){
+        DeliveryAddress deliveryAddress = deliveryAddressRepository.findById(deliveryAddressId).get();
+        UserEntity user = userRepository.findById(username).get();
+        deliveryAddress.assignUser(user);
+        return deliveryAddressRepository.save(deliveryAddress);
 
+    }
 }
