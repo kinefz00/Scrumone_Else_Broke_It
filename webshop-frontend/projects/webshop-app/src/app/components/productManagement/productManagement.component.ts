@@ -55,7 +55,9 @@ export class ProductManagementComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
     });
   }
+  public openAddProductDetailDialog(product: any){
 
+  }
   public openEditProductDialog(product: any) {
     console.log("editdialog", product)
     let dialogConfig = new MatDialogConfig();
