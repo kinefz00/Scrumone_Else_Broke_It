@@ -19,6 +19,9 @@ public class TechnicalDetailsService {
     public static Logger logger = Logger.getLogger(String.valueOf(TechnicalDetailsController.class));
     @Autowired
     public TechnicalDetailsRepository technicalDetailsRepository;
+
+    @Autowired
+    public ProductRepository productRepository;
     
 
 
@@ -53,7 +56,7 @@ public class TechnicalDetailsService {
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
 
-    /*public TechnicalDetails assignTechnicalDetailsToProduct(
+    public TechnicalDetails assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
@@ -62,5 +65,5 @@ public class TechnicalDetailsService {
         technicalDetails.assignProduct(product);
         return technicalDetailsRepository.save(technicalDetails);
 
-    }*/
+    }
 }

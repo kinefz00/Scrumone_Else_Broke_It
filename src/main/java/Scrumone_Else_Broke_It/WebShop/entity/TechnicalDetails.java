@@ -19,15 +19,19 @@ import java.io.Serializable;
 public class TechnicalDetails implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     @JsonIgnore
     private Product product;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column
     private int id;
     @Column
     private String detailTitle;
     @Column
     private String detailText;
 
+    public void assignProduct(Product product) {
+        this.product = product;
+    }
 }
