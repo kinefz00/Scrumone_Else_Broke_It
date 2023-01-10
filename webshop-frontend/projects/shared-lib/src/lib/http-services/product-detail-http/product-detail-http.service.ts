@@ -28,6 +28,7 @@ export interface ProductDetailResponse {
 export class ProductDetailHttpService {
   private url = 'http://localhost:8080';
   private path = 'technicalDetails';
+  private path2 = 'product';
 
   constructor(private http: HttpClient) {
   }
@@ -49,14 +50,22 @@ export class ProductDetailHttpService {
     this.http.delete(`${this.url}/${this.path}/${id}`)
       .subscribe();
     window.location.reload();
-  } // ToDo: Nicht Id vom Produkt ziehen sondern die vom Detail des Produkts
+  }
 
   public postProductDetail(technicalDetails: TechnicalDetail[]) {
     console.log("Postlog", technicalDetails)
-    this.http.post<Product>(`${this.url}/${this.path}`, technicalDetails)
+    this.http.post<TechnicalDetail>(`${this.url}/${this.path}`, technicalDetails)
       .subscribe((res) => {
         console.log(res);
       });
-    window.location.reload();
+    //window.location.reload();
   }
+
+  /*public assignProductDetail(id?: any, productId?: any){
+    console.log("detailId", id, "productID", productId)
+  this.http.put(`${this.url}/${id}/${this.path2}/${productId}`, productId)
+    .subscribe((res)=> {
+    console.log(res);
+    });
+  }*/
 }

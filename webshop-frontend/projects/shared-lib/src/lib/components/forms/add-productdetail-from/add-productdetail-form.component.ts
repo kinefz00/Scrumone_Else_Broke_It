@@ -11,7 +11,8 @@ export class AddProductDetailFormComponent implements OnInit {
   @Output() productDetailAdded: EventEmitter<any> = new EventEmitter<any>();
 
   public addProductDetailForm: FormGroup = this.formBuilder.group({
-    detailTitle: [null], //user.username über input
+    productId: [null],
+    detailTitle: [null],
     detailText: [null],
   });
 
@@ -27,6 +28,7 @@ export class AddProductDetailFormComponent implements OnInit {
   public submit() {
     console.log('>>>> ', this.addProductDetailForm.value);
     this.productDetailHttpService.postProductDetail(this.addProductDetailForm.value);
+    //this.productDetailHttpService.assignProductDetail(this.addProductDetailForm.value);
     this.productDetailAdded.emit();
   }
 }

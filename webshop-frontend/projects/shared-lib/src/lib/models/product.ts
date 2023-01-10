@@ -11,6 +11,7 @@ export interface Product {
 }
 
 export interface TechnicalDetail{
+  productId: number;
   id: number;
   detailTitle: string;
   detailText: string,
