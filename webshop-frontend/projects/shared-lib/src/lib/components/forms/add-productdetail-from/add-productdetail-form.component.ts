@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ProductHttpService} from "../../../http-services";
+import {ProductDetailHttpService, ProductHttpService} from "../../../http-services";
 
 @Component({
   selector: 'lib-add-productdetail-form',
@@ -17,7 +17,7 @@ export class AddProductDetailFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productHttpService: ProductHttpService
+    private productDetailHttpService: ProductDetailHttpService,
   ) {
   }
 
@@ -26,7 +26,7 @@ export class AddProductDetailFormComponent implements OnInit {
 
   public submit() {
     console.log('>>>> ', this.addProductDetailForm.value);
-    this.productHttpService.postProductDetail(this.addProductDetailForm.value);
+    this.productDetailHttpService.postProductDetail(this.addProductDetailForm.value);
     this.productDetailAdded.emit();
   }
 }

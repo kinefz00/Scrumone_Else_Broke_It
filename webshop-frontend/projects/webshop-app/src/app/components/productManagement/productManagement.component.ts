@@ -8,6 +8,7 @@ import {
 } from "../../../../../shared-lib/src/lib/components/dialogs/edit-product-dialog/edit-product-dialog.component";
 import {Product} from 'projects/shared-lib/src/lib/models';
 import {
+  ProductDetailHttpService,
   ProductHttpService,
 } from 'projects/shared-lib/src/public-api';
 import {
@@ -39,6 +40,7 @@ export class ProductManagementComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public productHttpService: ProductHttpService,
+    public productDetailHttpService: ProductDetailHttpService,
   ) {
   }
 

@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Product, Users} from '../../models';
+import {Product, TechnicalDetail, Users} from '../../models';
 
 export interface ProductResponse {
   content: Product[];
@@ -58,22 +58,8 @@ export class ProductHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-    window.location.reload();
+    //window.location.reload();
   }
 
-  public deleteProductDetail(id?: number) {
-    console.log("deleteProductLog", typeof id)
-    this.http.delete(`${this.url}/${this.path2}/${id}`)
-      .subscribe();
-    window.location.reload();
-  } // ToDo: Nicht Id vom Produkt ziehen sondern die vom Detail des Produkts
 
-  public postProductDetail(product: Product[]) {
-    console.log("Postlog", product)
-    this.http.post<Product>(`${this.url}/${this.path2}`, product)
-      .subscribe((res) => {
-        console.log(res);
-      });
-    window.location.reload();
-  }
 }

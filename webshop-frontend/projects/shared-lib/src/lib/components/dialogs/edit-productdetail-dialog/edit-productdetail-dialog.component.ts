@@ -17,9 +17,9 @@ export class EditProductDetailDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("productDetails:", this.data.product.details[0].detailTitle);
+    console.log("productDetails:", this.data.product.details[0].id);
     console.log("data:", this.data);
-    this.product = this.data.product.details;
+    this.product = this.data.product.details[0].id;
   }
 
   public close() {
