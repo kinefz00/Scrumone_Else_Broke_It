@@ -30,12 +30,12 @@
           <th mat-header-cell *matHeaderCellDef>E-Mail</th>
           <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
-        <ng-container matColumnDef="deliveryAddresses">
+        <ng-container matColumnDef="deliveryAddress">
           <th mat-header-cell *matHeaderCellDef>Lieferadresse</th>
           <td mat-cell *matCellDef="let element">
-            <span *ngFor="let detail of element.deliveryAddresses"> {{detail.street}} {{detail.houseNumber}} {{detail.zipCode}} {{detail.city}}
-              <button class="btn-edit" (click)="openEditUserDialog(element)">Edit</button>
-              <button class="btn-delete" (click)="this.userHttpService.deleteUser(element.id)">Delete</button>
+            <span *ngFor="let detail of element.deliveryAddress"> {{detail.street}} {{detail.houseNumber}} {{detail.zipCode}} {{detail.city}}
+              <button class="btn-edit" (click)="openEditDeliveryAddressDialog(element)">Edit</button>
+              <button class="btn-delete" (click)="this.deliveryAddressHttpService.deleteDeliveryAddress(element.id)">Delete</button>
               <br>
             </span>
           </td>
@@ -45,6 +45,7 @@
           <td mat-cell *matCellDef="let element">
             <button class="btn-edit" (click)="openEditUserDialog(element)">Edit</button>
             <button class="btn-delete" (click)="this.userHttpService.deleteUser(element.username); this.authService.logout()">Delete</button>
+            <button calss="btn-add" (click)="openAddDeliveryAddressDialog(element)">Add Delivery Address</button>
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

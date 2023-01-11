@@ -32,4 +32,7 @@ public class DeliveryAddress {
     @Column
     private int zipCode;
 
+    public void assignUser(UserEntity user) {
+        this.user = user;
+    }
 }

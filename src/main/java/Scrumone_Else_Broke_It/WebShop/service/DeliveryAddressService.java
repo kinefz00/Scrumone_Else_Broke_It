@@ -6,6 +6,7 @@ import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
 import Scrumone_Else_Broke_It.WebShop.entity.UserEntity;
 import Scrumone_Else_Broke_It.WebShop.repository.DeliveryAddressRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,9 @@ public class DeliveryAddressService {
     public static Logger logger = Logger.getLogger(String.valueOf(TechnicalDetailsController.class));
     @Autowired
     public DeliveryAddressRepository deliveryAddressRepository;
+
+    @Autowired
+    public UserRepository userRepository;
 
 
     public void saveDeliveryAddress(DeliveryAddress deliveryAddress){

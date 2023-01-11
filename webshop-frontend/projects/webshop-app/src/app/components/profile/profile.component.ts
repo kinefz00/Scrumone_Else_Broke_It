@@ -8,6 +8,13 @@ import {
 } from 'projects/shared-lib/src/public-api';
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../login";
+import {
+  AddDeliveryAddressDialogComponent
+} from "../../../../../shared-lib/src/lib/components/dialogs/add-deliveryaddress-dialog/add-delivery-address-dialog.component";
+import {
+  EditDeliveryAddressDialogComponent
+} from "../../../../../shared-lib/src/lib/components/dialogs/edit-deliveryaddress-dialog/edit-deliveryaddress-dialog.component";
+import {DeliveryaddressHttpService} from "../../../../../shared-lib/src/lib/http-services/deliveryaddress-http";
 
 @Component({
   selector: 'app-profile.ts',
@@ -23,7 +30,7 @@ export class ProfileComponent implements OnInit {
     'firstName',
     'lastName',
     'email',
-    'deliveryAddresses',
+    'deliveryAddress',
     'options',
   ];
 
@@ -32,6 +39,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public userHttpService: UsersHttpService,
+    public deliveryAddressHttpService: DeliveryaddressHttpService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public authService: AuthenticationService,
@@ -67,6 +75,28 @@ export class ProfileComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.data = {user}
     const dialogRef = this.dialog.open(EditUserDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  public openAddDeliveryAddressDialog(user: any) {
+    console.log("editdialog", user)
+    let dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {user}
+    const dialogRef = this.dialog.open(AddDeliveryAddressDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
+  public openEditDeliveryAddressDialog(user: any) {
+    console.log("editdialog", user)
+    let dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {user}
+    const dialogRef = this.dialog.open(EditDeliveryAddressDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
