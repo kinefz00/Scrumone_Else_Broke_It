@@ -6,4 +6,14 @@ export interface Users {
   password: string;
   role: string;
   discount: number;
+  deliveryAddress: Array<DeliveryAddress>;
+}
+
+export interface DeliveryAddress {
+  username: string;
+  id: number;
+  city: string;
+  houseNumber: number;
+  street: string;
+  zipCode: number;
 }

@@ -37,6 +37,18 @@ import {
 import {
   AddProductDetailFormComponent
 } from "./components/forms/add-productdetail-from/add-productdetail-form.component";
+import {
+  AddDeliveryAddressDialogComponent
+} from "./components/dialogs/add-deliveryaddress-dialog/add-delivery-address-dialog.component";
+import {
+  AddDeliveryAddressFormComponent
+} from "./components/forms/add-deliveryaddress-form/add-deliveryaddress-form.component";
+import {
+  EditDeliveryAddressDialogComponent
+} from "./components/dialogs/edit-deliveryaddress-dialog/edit-deliveryaddress-dialog.component";
+import {
+  EditDeliveryAddressFormComponent
+} from "./components/forms/edit-deliveryaddress-form/edit-deliveryaddress-form.component";
 
 
 
@@ -55,7 +67,10 @@ import {
     EditProductDetailFormComponent,
     AddProductDetailDialogComponent,
     AddProductDetailFormComponent,
-
+    AddDeliveryAddressDialogComponent,
+    AddDeliveryAddressFormComponent,
+    EditDeliveryAddressDialogComponent,
+    EditDeliveryAddressFormComponent,
   ],
   imports: [
     BrowserAnimationsModule,
