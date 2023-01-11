@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class DeliveryAddress {
 
     @ManyToOne
-    @JoinColumn(name = "username", referencedColumnName = "username", nullable = false)
+    @JoinColumn(name = "username", referencedColumnName = "username")
     @JsonIgnore
     private UserEntity user;
 
