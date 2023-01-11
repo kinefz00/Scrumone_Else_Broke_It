@@ -20,4 +20,5 @@ values
     (3,'100% Cotton', 'Material', 2);
 
 insert into delivery_address
-values ( 1,'oko', 7, 'Pulfrichstr', 73477, 'Fabi' ),(2,'oko', 7, 'Pulfrichstr', 73433, 'Fabi' )
+values ( 1,'oko', 7, 'Pulfrichstr', 73477, 'Fabi' ),(2,'oko', 7, 'Pulfrichstr', 73433, 'Fabi' ),
+       (3, 'Aalen',22,'Achatstr', 73433,'Kim');
