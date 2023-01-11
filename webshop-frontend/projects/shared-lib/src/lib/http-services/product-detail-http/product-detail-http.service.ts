@@ -46,10 +46,10 @@ export class ProductDetailHttpService {
     //window.location.reload();
   }
   public deleteProductDetail(id?: number) {
-    console.log("deleteProductLog", typeof id)
+    console.log("deleteProductLog", id)
     this.http.delete(`${this.url}/${this.path}/${id}`)
       .subscribe();
-    window.location.reload();
+    // window.location.reload();
   }
 
   public postProductDetail(technicalDetails: TechnicalDetail[]) {
@@ -61,11 +61,11 @@ export class ProductDetailHttpService {
     //window.location.reload();
   }
 
-  /*public assignProductDetail(id?: any, productId?: any){
-    console.log("detailId", id, "productID", productId)
-  this.http.put(`${this.url}/${id}/${this.path2}/${productId}`, productId)
+  public assignProductDetail(id?: number, productId?: any){
+    console.log("detailId", typeof id, "productID", productId)
+    this.http.put(`${this.url}/${15}/${this.path2}/${2}`, productId)
     .subscribe((res)=> {
     console.log(res);
     });
-  }*/
+  }
 }

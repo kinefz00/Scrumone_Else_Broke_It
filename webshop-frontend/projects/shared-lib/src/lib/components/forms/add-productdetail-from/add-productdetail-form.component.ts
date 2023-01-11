@@ -19,6 +19,7 @@ export class AddProductDetailFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productDetailHttpService: ProductDetailHttpService,
+
   ) {
   }
 
@@ -26,9 +27,9 @@ export class AddProductDetailFormComponent implements OnInit {
   }
 
   public submit() {
-    console.log('>>>> ', this.addProductDetailForm.value);
+    console.log('>>>> ', this.addProductDetailForm.value, );
     this.productDetailHttpService.postProductDetail(this.addProductDetailForm.value);
-    //this.productDetailHttpService.assignProductDetail(this.addProductDetailForm.value);
+    this.productDetailHttpService.assignProductDetail();
     this.productDetailAdded.emit();
   }
 }
