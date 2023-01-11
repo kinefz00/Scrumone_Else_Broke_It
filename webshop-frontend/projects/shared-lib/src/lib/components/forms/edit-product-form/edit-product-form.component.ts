@@ -37,7 +37,7 @@ export class EditProductFormComponent implements OnInit {
 
   public submit() {
     console.log('>>>> ', this.editProductForm.value, typeof this.product.id);
-    this.productHttpService.editProduct(this.editProductForm.value, 1);
+    this.productHttpService.editProduct(this.editProductForm.value, this.product.id);
     this.productEdited.emit();
 
   }

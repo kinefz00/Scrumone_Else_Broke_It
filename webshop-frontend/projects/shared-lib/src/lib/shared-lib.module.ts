@@ -25,6 +25,20 @@ import {AddProductFormComponent} from "./components/forms/add-product-form/add-p
 import {AddProductDialogComponent} from "./components/dialogs/add-product-dialog/add-product-dialog.component";
 import {EditProductDialogComponent} from "./components/dialogs/edit-product-dialog/edit-product-dialog.component";
 import {EditProductFormComponent} from "./components/forms/edit-product-form/edit-product-form.component";
+import {
+  EditProductDetailDialogComponent
+} from "./components/dialogs/edit-productdetail-dialog/edit-productdetail-dialog.component";
+import {
+  EditProductDetailFormComponent
+} from "./components/forms/edit-productdetail-form/edit-productdetail-form.component";
+import {
+  AddProductDetailDialogComponent
+} from "./components/dialogs/add-productdetail-dialog/add-productdetail-dialog.component";
+import {
+  AddProductDetailFormComponent
+} from "./components/forms/add-productdetail-from/add-productdetail-form.component";
+
+
 
 @NgModule({
   declarations: [
@@ -37,6 +51,11 @@ import {EditProductFormComponent} from "./components/forms/edit-product-form/edi
     AddProductDialogComponent,
     EditProductDialogComponent,
     EditProductFormComponent,
+    EditProductDetailDialogComponent,
+    EditProductDetailFormComponent,
+    AddProductDetailDialogComponent,
+    AddProductDetailFormComponent,
+
   ],
   imports: [
     BrowserAnimationsModule,

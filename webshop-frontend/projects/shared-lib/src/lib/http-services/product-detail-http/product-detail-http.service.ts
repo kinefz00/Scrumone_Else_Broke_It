@@ -1,11 +1,11 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ProductDetail} from "../../models";
+import {Product, TechnicalDetail} from "../../models";
 
 
 export interface ProductDetailResponse {
-  content: ProductDetail;
+  content: TechnicalDetail [];
   pageable: string;
   totalPages: number;
   totalElements: number;
@@ -27,12 +27,45 @@ export interface ProductDetailResponse {
 })
 export class ProductDetailHttpService {
   private url = 'http://localhost:8080';
-  private path = 'productDetail';
+  private path = 'technicalDetails';
+  private path2 = 'product';
 
   constructor(private http: HttpClient) {
   }
 
-  public getProducts(queryParams?: any): Observable<ProductDetail[]> {
-    return this.http.get<ProductDetail[]>(`${this.url}/${this.path}`);
+  public getProducts(queryParams?: any): Observable<TechnicalDetail[]> {
+    return this.http.get<TechnicalDetail[]>(`${this.url}/${this.path}`);
+  }
+
+  public editProductDetail(technicalDetails?: TechnicalDetail[], id?: any) {
+    console.log("edit", typeof id)
+    this.http.put<TechnicalDetail>(`${this.url}/${this.path}/${id}`, technicalDetails)
+      .subscribe((res) => {
+        console.log(res);
+      });
+    //window.location.reload();
+  }
+  public deleteProductDetail(id?: number) {
+    console.log("deleteProductLog", id)
+    this.http.delete(`${this.url}/${this.path}/${id}`)
+      .subscribe();
+    // window.location.reload();
+  }
+
+  public postProductDetail(technicalDetails: TechnicalDetail[]) {
+    console.log("Postlog", technicalDetails)
+    this.http.post<TechnicalDetail>(`${this.url}/${this.path}`, technicalDetails)
+      .subscribe((res) => {
+        console.log(res);
+      });
+    //window.location.reload();
+  }
+
+  public assignProductDetail(id?: number, productId?: any){
+    console.log("detailId", typeof id, "productID", productId)
+    this.http.put(`${this.url}/${15}/${this.path2}/${2}`, productId)
+    .subscribe((res)=> {
+    console.log(res);
+    });
   }
 }

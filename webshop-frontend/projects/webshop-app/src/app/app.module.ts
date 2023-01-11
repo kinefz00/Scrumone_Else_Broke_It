@@ -36,6 +36,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 import {ProductManagementComponent} from "./components/productManagement/productManagement.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 
+
 @NgModule({
   declarations: [
     AppComponent,

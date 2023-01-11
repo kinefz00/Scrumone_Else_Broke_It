@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Product, Users} from '../../models';
+import {Product, TechnicalDetail, Users} from '../../models';
 
 export interface ProductResponse {
   content: Product[];
@@ -27,6 +27,7 @@ export interface ProductResponse {
 export class ProductHttpService {
   private url = 'http://localhost:8080';
   private path = 'product';
+  private path2 = 'technicalDetails';
 
   constructor(private http: HttpClient) {
   }
@@ -59,4 +60,6 @@ export class ProductHttpService {
       });
     window.location.reload();
   }
+
+
 }
