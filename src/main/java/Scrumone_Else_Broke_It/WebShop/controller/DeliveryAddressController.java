@@ -1,6 +1,5 @@
 package Scrumone_Else_Broke_It.WebShop.controller;
 import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
-import Scrumone_Else_Broke_It.WebShop.repository.DeliveryAddressRepository;
 import Scrumone_Else_Broke_It.WebShop.service.DeliveryAddressService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +14,15 @@ public class DeliveryAddressController {
     @Autowired
     DeliveryAddressService deliveryAddressService;
 
-    @GetMapping("/deliveryAddress")
-    private List<DeliveryAddress> getAllDeliveryAddress() {
-        return deliveryAddressService.getDeliveryAddressList();
+    @GetMapping("/user/{username}/deliveryAddress")
+    private List<DeliveryAddress> getAllDeliveryAddress(@PathVariable String username) {
+        return deliveryAddressService.getDeliveryAddressListForUsername(username);
+    }
+
+
+    @PostMapping("/user/{username}/deliveryAddress")
+    public DeliveryAddress saveDeliveryAddressForUser(@PathVariable String username, @RequestBody DeliveryAddress deliveryAddress) {
+        return deliveryAddressService.saveDeliveryAddressForUser(username, deliveryAddress);
     }
 
     @GetMapping("/deliveryAddress/{id}")
