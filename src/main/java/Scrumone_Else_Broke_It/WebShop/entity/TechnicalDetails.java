@@ -22,12 +22,15 @@ public class TechnicalDetails implements Serializable {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     @JsonIgnore
     private Product product;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
+
     @Column
     private String detailTitle;
+
     @Column
     private String detailText;
 

@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Table
-
 public class DeliveryAddress {
 
     @ManyToOne
@@ -21,7 +20,7 @@ public class DeliveryAddress {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String city;

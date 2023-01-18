@@ -30,6 +30,6 @@ public class UserEntity {
     @Column
     private double discount;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private List<DeliveryAddress> deliveryAddress;
 }

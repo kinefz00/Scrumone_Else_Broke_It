@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.yaml.snakeyaml.events.Event;
 
 public interface DeliveryAddressRepository extends CrudRepository<DeliveryAddress, Integer> {
+
 }

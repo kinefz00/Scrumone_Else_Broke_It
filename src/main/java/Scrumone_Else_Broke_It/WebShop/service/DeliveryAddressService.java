@@ -6,7 +6,6 @@ import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
 import Scrumone_Else_Broke_It.WebShop.entity.UserEntity;
 import Scrumone_Else_Broke_It.WebShop.repository.DeliveryAddressRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +22,10 @@ public class DeliveryAddressService {
     @Autowired
     public DeliveryAddressRepository deliveryAddressRepository;
 
+
     @Autowired
     public UserRepository userRepository;
+
 
 
     public void saveDeliveryAddress(DeliveryAddress deliveryAddress){
@@ -33,13 +34,11 @@ public class DeliveryAddressService {
     }
 
 
-    public List<DeliveryAddress> getDeliveryAddressList() {
-        List<DeliveryAddress> list = new ArrayList<>();
-        Iterator<DeliveryAddress> it = deliveryAddressRepository.findAll().iterator();
-        while (it.hasNext()){
-            list.add(it.next());
-        }
-        return list;
+    public List<DeliveryAddress> getDeliveryAddressListForUsername(String username) {
+
+        UserEntity user = userRepository.findByUsername(username);
+        List<DeliveryAddress> deliveryAddress = user.getDeliveryAddress();
+        return deliveryAddress;
     }
 
     public DeliveryAddress getDeliveryAddressById(int id) {
@@ -66,5 +65,13 @@ public class DeliveryAddressService {
         deliveryAddress.assignUser(user);
         return deliveryAddressRepository.save(deliveryAddress);
 
+    }
+
+    public DeliveryAddress saveDeliveryAddressForUser(String username, DeliveryAddress deliveryAddress) {
+
+        UserEntity user = userRepository.findByUsername(username);
+        deliveryAddress.assignUser(user);
+        deliveryAddressRepository.save(deliveryAddress);
+        return deliveryAddress;
     }
 }
