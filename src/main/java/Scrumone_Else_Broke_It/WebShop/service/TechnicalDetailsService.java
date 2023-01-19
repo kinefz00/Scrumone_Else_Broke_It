@@ -1,16 +1,16 @@
 package Scrumone_Else_Broke_It.WebShop.service;
 
 import Scrumone_Else_Broke_It.WebShop.controller.TechnicalDetailsController;
+import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
 import Scrumone_Else_Broke_It.WebShop.entity.Product;
 import Scrumone_Else_Broke_It.WebShop.entity.TechnicalDetails;
+import Scrumone_Else_Broke_It.WebShop.entity.UserEntity;
 import Scrumone_Else_Broke_It.WebShop.repository.ProductRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.TechnicalDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -30,15 +30,13 @@ public class TechnicalDetailsService {
         technicalDetailsRepository.save(technicalDetails);
     }
 
+    public List<TechnicalDetails> getTechnicalDetailsForProduct(int id) {
 
-    public List<TechnicalDetails> getTechnicalDetailsList() {
-        List<TechnicalDetails> list = new ArrayList<>();
-        Iterator<TechnicalDetails> it = technicalDetailsRepository.findAll().iterator();
-        while (it.hasNext()) {
-            list.add(it.next());
-        }
-        return list;
+        Product product = productRepository.findById(id);
+        List<TechnicalDetails> technicalDetails = product.getTechnicalDetails();
+        return technicalDetails;
     }
+
 
     public TechnicalDetails getTechnicalDetailsById(int id) {
         logger.info("Get \"TechnicalDetails\" with the id: " + id);
@@ -56,7 +54,7 @@ public class TechnicalDetailsService {
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
 
-    public TechnicalDetails assignTechnicalDetailsToProduct(
+    /*public TechnicalDetails assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
@@ -65,5 +63,12 @@ public class TechnicalDetailsService {
         technicalDetails.assignProduct(product);
         return technicalDetailsRepository.save(technicalDetails);
 
+    }*/
+    public TechnicalDetails saveTechnicalDetailsForProducts(int id, TechnicalDetails technicalDetails) {
+
+        Product product = productRepository.findById(id);
+        technicalDetails.assignProduct(product);
+        technicalDetailsRepository.save(technicalDetails);
+        return technicalDetails;
     }
 }

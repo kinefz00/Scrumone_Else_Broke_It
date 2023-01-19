@@ -4,19 +4,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 
 @Entity
 @Getter
 @Setter
-public class Product implements Serializable {
+public class Product {
 
     //Attributes
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String category;
@@ -29,7 +28,7 @@ public class Product implements Serializable {
     @Column
     private double price;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
-    private List<TechnicalDetails> details;
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL})
+    private List<TechnicalDetails> technicalDetails;
 
 }

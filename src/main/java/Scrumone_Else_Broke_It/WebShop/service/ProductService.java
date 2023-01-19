@@ -31,7 +31,7 @@ public class ProductService {
 
 
     public Optional<Product> findById(int id){
-        return productRepository.findById(id);
+        return Optional.ofNullable(productRepository.findById(id));
     }
 
 
@@ -43,7 +43,7 @@ public class ProductService {
 
     public Product getProductById(int id) {
         logger.info("Get \"Product\" with the id: " + id);
-        return productRepository.findById(id).get();
+        return productRepository.findById(id);
     }
 
     public void deleteProduct(int id) {

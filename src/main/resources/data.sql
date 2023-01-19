@@ -8,10 +8,10 @@ values('Toni',10, 'toni.zubac@studmain.hs-aalen.de','Toni', 'Zubac', 'password',
 insert into impressum
 values (1, 'Hier könnte das Impressum stehen');
 
-insert into product
+insert into product (CATEGORY, CURRENCY, DESCRIPTION, NAME,PRICE)
 values
-    (1, 'Electronics', '€', 'Personal use Gaming computer', 'PC', 1200.98),
-    (2, 'Dog', '€', 'Stuffed dog for children', 'little childrens accessory', 23.99);
+    ('Electronics', '€', 'Personal use Gaming computer', 'PC', 1200.98),
+    ('Dog', '€', 'Stuffed dog for children', 'little childrens accessory', 23.99);
 
 insert into technical_details (DETAIL_TEXT, DETAIL_TITLE, PRODUCT_ID)
 values

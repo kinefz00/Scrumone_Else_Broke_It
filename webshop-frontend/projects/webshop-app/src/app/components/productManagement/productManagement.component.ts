@@ -48,7 +48,7 @@ export class ProductManagementComponent implements OnInit {
     this.productHttpService
       .getProducts()
       .subscribe((response: Product[]) => { // Subscription auf ein "Observable" vom Type "UserResponse"
-        console.log('>>> Users ', response);
+        console.log('>>> Products ', response);
         this.productManagementList = response;
       });
   }

@@ -1,6 +1,7 @@
 package Scrumone_Else_Broke_It.WebShop.controller;
 
 
+import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
 import Scrumone_Else_Broke_It.WebShop.entity.TechnicalDetails;
 import Scrumone_Else_Broke_It.WebShop.service.TechnicalDetailsService;
 
@@ -16,11 +17,15 @@ public class TechnicalDetailsController {
     TechnicalDetailsService technicalDetailsService;
 
 
-    @GetMapping("/technicalDetails")
-    private List<TechnicalDetails> getAllTechnicalDetails() {
-        return technicalDetailsService.getTechnicalDetailsList();
+    @GetMapping("/product/{id}/technicalDetails")
+    private List<TechnicalDetails> getAllTechnicalDetails(@PathVariable int id) {
+        return technicalDetailsService.getTechnicalDetailsForProduct(id);
     }
 
+    @PostMapping("/product/{id}/technicalDetails")
+    public TechnicalDetails saveTechnicalDetailsForProducts(@PathVariable int id, @RequestBody TechnicalDetails technicalDetails) {
+        return technicalDetailsService.saveTechnicalDetailsForProducts(id, technicalDetails);
+    }
 
     @GetMapping("/technicalDetails/{id}")
     private TechnicalDetails getTechnicalDetailsId(@PathVariable("id") int id) {
@@ -46,11 +51,11 @@ public class TechnicalDetailsController {
         technicalDetailsService.edit(id, technicalDetails);
     }
 
-     @PutMapping("/{technicalDetailsId}/product/{productId}")
+     /*@PutMapping("/{technicalDetailsId}/product/{productId}")
     public void assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
         this.technicalDetailsService.assignTechnicalDetailsToProduct(technicalDetailsId, productId);
-    }
+    }*/
 }
