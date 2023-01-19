@@ -1,16 +1,15 @@
 package Scrumone_Else_Broke_It.WebShop.service;
 
 import Scrumone_Else_Broke_It.WebShop.controller.TechnicalDetailsController;
-import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
 import Scrumone_Else_Broke_It.WebShop.entity.Product;
 import Scrumone_Else_Broke_It.WebShop.entity.TechnicalDetails;
-import Scrumone_Else_Broke_It.WebShop.entity.UserEntity;
 import Scrumone_Else_Broke_It.WebShop.repository.ProductRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.TechnicalDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -22,8 +21,15 @@ public class TechnicalDetailsService {
 
     @Autowired
     public ProductRepository productRepository;
-    
 
+    public List<TechnicalDetails> getTechnicalDetailsList() {
+        List<TechnicalDetails> list = new ArrayList<>();
+        Iterator<TechnicalDetails> it = technicalDetailsRepository.findAll().iterator();
+        while (it.hasNext()) {
+            list.add(it.next());
+        }
+        return list;
+    }
 
     public void saveTechnicalDetails(TechnicalDetails technicalDetails) {
         logger.info("Angelegt");
@@ -33,7 +39,7 @@ public class TechnicalDetailsService {
     public List<TechnicalDetails> getTechnicalDetailsForProduct(int id) {
 
         Product product = productRepository.findById(id);
-        List<TechnicalDetails> technicalDetails = product.getTechnicalDetails();
+        List<TechnicalDetails> technicalDetails = product.getDetails();
         return technicalDetails;
     }
 

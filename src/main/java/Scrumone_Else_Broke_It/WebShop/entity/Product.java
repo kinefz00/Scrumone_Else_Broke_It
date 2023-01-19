@@ -29,6 +29,6 @@ public class Product {
     private double price;
 
     @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL})
-    private List<TechnicalDetails> technicalDetails;
+    private List<TechnicalDetails> details;
 
 }

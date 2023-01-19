@@ -1,7 +1,6 @@
 package Scrumone_Else_Broke_It.WebShop.controller;
 
 
-import Scrumone_Else_Broke_It.WebShop.entity.DeliveryAddress;
 import Scrumone_Else_Broke_It.WebShop.entity.TechnicalDetails;
 import Scrumone_Else_Broke_It.WebShop.service.TechnicalDetailsService;
 
@@ -18,8 +17,13 @@ public class TechnicalDetailsController {
 
 
     @GetMapping("/product/{id}/technicalDetails")
-    private List<TechnicalDetails> getAllTechnicalDetails(@PathVariable int id) {
+    private List<TechnicalDetails> getAllTechnicalDetailsByProduct(@PathVariable int id) {
         return technicalDetailsService.getTechnicalDetailsForProduct(id);
+    }
+
+    @GetMapping("/technicalDetails")
+    private List<TechnicalDetails> getAllTechnicalDetails() {
+        return technicalDetailsService.getTechnicalDetailsList();
     }
 
     @PostMapping("/product/{id}/technicalDetails")

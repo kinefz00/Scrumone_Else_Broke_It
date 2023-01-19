@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Product, TechnicalDetail} from "../../models";
-
+import {ProductResponse} from "../product-http";
 
 export interface ProductDetailResponse {
   content: TechnicalDetail [];
@@ -30,11 +30,8 @@ export class ProductDetailHttpService {
   private path = 'technicalDetails';
   private path2 = 'product';
 
-  constructor(private http: HttpClient) {
-  }
 
-  public getProducts(queryParams?: any): Observable<TechnicalDetail[]> {
-    return this.http.get<TechnicalDetail[]>(`${this.url}/${this.path}`);
+  constructor(private http: HttpClient) {
   }
 
   public editProductDetail(technicalDetails?: TechnicalDetail[], id?: any) {
@@ -52,9 +49,9 @@ export class ProductDetailHttpService {
     // window.location.reload();
   }
 
-  public postProductDetail(technicalDetails: TechnicalDetail[]) {
+  public postProductDetail(technicalDetails: TechnicalDetail[], id?: number) {
     console.log("Postlog", technicalDetails)
-    this.http.post<TechnicalDetail>(`${this.url}/${this.path}`, technicalDetails)
+    this.http.post<TechnicalDetail>(`${this.url}/${this.path2}/${id}/${this.path}`, technicalDetails)
       .subscribe((res) => {
         console.log(res);
       });

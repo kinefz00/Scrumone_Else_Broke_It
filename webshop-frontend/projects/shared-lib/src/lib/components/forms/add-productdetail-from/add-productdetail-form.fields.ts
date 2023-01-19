@@ -1,8 +1,8 @@
 export const Edit_ProductDetail_FORM_FIELDS: any[] = [
-  {
-    id: 'productId',
-    label: 'Product Id',
-  },
+  // {
+  //   id: 'productId',
+  //   label: 'Product Id',
+  // },
   {
     id: 'detailTitle',
     label: 'Detail Title',

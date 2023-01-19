@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProductDetailHttpService, ProductHttpService} from "../../../http-services";
+import {Product} from "../../../models";
 
 @Component({
   selector: 'lib-add-productdetail-form',
@@ -9,6 +10,7 @@ import {ProductDetailHttpService, ProductHttpService} from "../../../http-servic
 })
 export class AddProductDetailFormComponent implements OnInit {
   @Output() productDetailAdded: EventEmitter<any> = new EventEmitter<any>();
+  @Input() product!: Product;
 
   public addProductDetailForm: FormGroup = this.formBuilder.group({
     productId: [null],
@@ -19,7 +21,7 @@ export class AddProductDetailFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private productDetailHttpService: ProductDetailHttpService,
-
+    private productHttpService: ProductHttpService,
   ) {
   }
 
@@ -29,7 +31,7 @@ export class AddProductDetailFormComponent implements OnInit {
   public submit() {
     console.log('>>>> ', this.addProductDetailForm.value, );
     this.productDetailHttpService.postProductDetail(this.addProductDetailForm.value);
-    this.productDetailHttpService.assignProductDetail();
+    // this.productDetailHttpService.assignProductDetail();
     this.productDetailAdded.emit();
   }
 }
