@@ -10,7 +10,7 @@ import {Product} from "../../../models";
 })
 export class AddProductDetailFormComponent implements OnInit {
   @Output() productDetailAdded: EventEmitter<any> = new EventEmitter<any>();
-  @Input() product!: Product;
+  @Input() product!: number;
 
   public addProductDetailForm: FormGroup = this.formBuilder.group({
     productId: [null],
@@ -30,7 +30,7 @@ export class AddProductDetailFormComponent implements OnInit {
 
   public submit() {
     console.log('>>>> ', this.addProductDetailForm.value, );
-    this.productDetailHttpService.postProductDetail(this.addProductDetailForm.value);
+    this.productDetailHttpService.postProductDetail(this.addProductDetailForm.value, this.product);
     // this.productDetailHttpService.assignProductDetail();
     this.productDetailAdded.emit();
   }

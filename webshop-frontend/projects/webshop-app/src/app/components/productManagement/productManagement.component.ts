@@ -73,7 +73,7 @@ export class ProductManagementComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
     });
-    return product;
+    // return product;
   }
   public openEditProductDialog(product: any) {
     console.log("editdialog", product)
