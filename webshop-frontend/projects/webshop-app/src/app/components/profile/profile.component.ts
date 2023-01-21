@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
-import { AddUserDialogComponent } from 'projects/shared-lib/src/lib/components/dialogs/add-user-dialog/add-user-dialog.component';
-import { EditUserDialogComponent} from "../../../../../shared-lib/src/lib/components/dialogs/edit-user-dialog/edit-user-dialog.component";
 import {Users} from 'projects/shared-lib/src/lib/models';
 import {
   UsersHttpService,
@@ -15,6 +13,9 @@ import {
   EditDeliveryAddressDialogComponent
 } from "../../../../../shared-lib/src/lib/components/dialogs/edit-deliveryaddress-dialog/edit-deliveryaddress-dialog.component";
 import {DeliveryaddressHttpService} from "../../../../../shared-lib/src/lib/http-services/deliveryaddress-http";
+import {
+  EditProfileDialogComponent
+} from "../../../../../shared-lib/src/lib/components/dialogs/edit-profile-dialog/edit-profile-dialog.component";
 
 @Component({
   selector: 'app-profile.ts',
@@ -74,7 +75,7 @@ export class ProfileComponent implements OnInit {
 
     dialogConfig.autoFocus = true;
     dialogConfig.data = {user}
-    const dialogRef = this.dialog.open(EditUserDialogComponent, dialogConfig);
+    const dialogRef = this.dialog.open(EditProfileDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
