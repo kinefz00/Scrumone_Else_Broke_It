@@ -36,3 +36,4 @@ build/
 
 /webshop-frontend/node_modules/
 /webshop-frontend/.angular/
+/gen/
