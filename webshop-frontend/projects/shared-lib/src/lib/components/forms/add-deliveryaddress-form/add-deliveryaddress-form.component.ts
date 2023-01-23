@@ -1,7 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsersHttpService} from "../../../http-services";
 import {DeliveryaddressHttpService} from "../../../http-services/deliveryaddress-http";
+import {Users} from "../../../models";
 
 @Component({
   selector: 'lib-add-deliveryaddress-form',
@@ -10,6 +11,7 @@ import {DeliveryaddressHttpService} from "../../../http-services/deliveryaddress
 })
 export class AddDeliveryAddressFormComponent implements OnInit {
   @Output() deliveryAddressAdded: EventEmitter<any> = new EventEmitter<any>();
+  @Input() user!: string;
 
   public addDeliveryAddressForm: FormGroup = this.formBuilder.group({
     city: [null, Validators.required],
@@ -21,7 +23,6 @@ export class AddDeliveryAddressFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private deliveryAddressHttpService: DeliveryaddressHttpService,
-
   ) {
   }
 
@@ -30,8 +31,8 @@ export class AddDeliveryAddressFormComponent implements OnInit {
 
   public submit() {
     console.log('>>>> ', this.addDeliveryAddressForm.value, );
-    this.deliveryAddressHttpService.postDeliveryAddress(this.addDeliveryAddressForm.value);
-    this.deliveryAddressHttpService.assignDeliveryAddress();
+    this.deliveryAddressHttpService.postDeliveryAddress(this.addDeliveryAddressForm.value, this.user);
+    // this.deliveryAddressHttpService.assignDeliveryAddress();
     this.deliveryAddressAdded.emit();
   }
 }

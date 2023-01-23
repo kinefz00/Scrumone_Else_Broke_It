@@ -8,7 +8,6 @@ import Scrumone_Else_Broke_It.WebShop.repository.DeliveryAddressRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,12 +26,21 @@ public class DeliveryAddressService {
     public UserRepository userRepository;
 
 
+    public List<DeliveryAddress> getDeliveryAddressList(){
+        List<DeliveryAddress> list = new ArrayList<>();
+        Iterator<DeliveryAddress> it = deliveryAddressRepository.findAll().iterator();
+        while (it.hasNext()){
+            list.add(it.next());
+        }
+        return list;
+    }
 
-    public void saveDeliveryAddress(DeliveryAddress deliveryAddress){
+
+  /*  public void saveDeliveryAddress(DeliveryAddress deliveryAddress){
         logger.info("Angelegt");
         deliveryAddressRepository.save(deliveryAddress);
     }
-
+*/
 
     public List<DeliveryAddress> getDeliveryAddressListForUsername(String username) {
 
@@ -56,7 +64,7 @@ public class DeliveryAddressService {
         deliveryAddressRepository.save(deliveryAddress);
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
-    public DeliveryAddress assignDeliveryAddressToUser(
+    /*public DeliveryAddress assignDeliveryAddressToUser(
             @PathVariable int deliveryAddressId,
             @PathVariable String username
     ){
@@ -65,7 +73,7 @@ public class DeliveryAddressService {
         deliveryAddress.assignUser(user);
         return deliveryAddressRepository.save(deliveryAddress);
 
-    }
+    }*/
 
     public DeliveryAddress saveDeliveryAddressForUser(String username, DeliveryAddress deliveryAddress) {
 

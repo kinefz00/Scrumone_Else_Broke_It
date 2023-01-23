@@ -8,11 +8,17 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./add-delivery-address-dialog.component.css'],
 })
 export class AddDeliveryAddressDialogComponent implements OnInit {
+  public userUsername!: string;
+
   constructor(private dialogRef: MatDialogRef<AddDeliveryAddressDialogComponent>,
+              @Inject(MAT_DIALOG_DATA)
+              public data: any,
   ) {
   }
 
   ngOnInit(): void {
+    this.userUsername = this.data.username
+    console.log(this.userUsername)
   }
 
   public close() {

@@ -1,6 +1,5 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
 import {DeliveryAddress} from "../../models";
 
 
@@ -50,9 +49,9 @@ export class DeliveryaddressHttpService {
     // window.location.reload();
   }
 
-  public postDeliveryAddress(deliveryAddress: DeliveryAddress[]) {
+  public postDeliveryAddress(deliveryAddress: DeliveryAddress[], user?: string) {
     console.log("Postlog", deliveryAddress)
-    this.http.post<DeliveryAddress>(`${this.url}/${this.path}`, deliveryAddress)
+    this.http.post<DeliveryAddress>(`${this.url}/${this.path2}/${user}/${this.path}`, deliveryAddress)
       .subscribe((res) => {
         console.log(res);
       });

@@ -15,13 +15,13 @@ export class AddProductDetailDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<AddProductDetailDialogComponent>,
               @Inject(MAT_DIALOG_DATA)
               public data: any,
-            private productservice: ProductDetailHttpService) {
+  ) {
   }
 
   ngOnInit(): void {
     this.productId = this.data.product;
     console.log(this.data);
-    // this.productservice.postProductDetail()
+
 
   }
 

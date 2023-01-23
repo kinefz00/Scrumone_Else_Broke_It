@@ -1,8 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Product, TechnicalDetail} from "../../models";
-import {ProductResponse} from "../product-http";
+import {TechnicalDetail} from "../../models";
 
 export interface ProductDetailResponse {
   content: TechnicalDetail [];
@@ -40,13 +38,13 @@ export class ProductDetailHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-    //window.location.reload();
+    window.location.reload();
   }
   public deleteProductDetail(id?: number) {
     console.log("deleteProductLog", id)
     this.http.delete(`${this.url}/${this.path}/${id}`)
       .subscribe();
-    // window.location.reload();
+    window.location.reload();
   }
 
   public postProductDetail(technicalDetails: TechnicalDetail[], id?: number) {
@@ -55,14 +53,14 @@ export class ProductDetailHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-    //window.location.reload();
+    window.location.reload();
   }
 
-  public assignProductDetail(id?: number, productId?: any){
-    console.log("detailId", typeof id, "productID", productId)
-    this.http.put(`${this.url}/${15}/${this.path2}/${2}`, productId)
-    .subscribe((res)=> {
-    console.log(res);
-    });
-  }
+  // public assignProductDetail(id?: number, productId?: any){
+  //   console.log("detailId", typeof id, "productID", productId)
+  //   this.http.put(`${this.url}/${15}/${this.path2}/${2}`, productId)
+  //   .subscribe((res)=> {
+  //   console.log(res);
+  //   });
+  // }
 }
