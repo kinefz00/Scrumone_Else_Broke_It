@@ -17,8 +17,9 @@ export class AddDeliveryAddressDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userUsername = this.data.username
+    this.userUsername = this.data.user.username
     console.log(this.userUsername)
+    console.log(this.data.user.username)
   }
 
   public close() {
