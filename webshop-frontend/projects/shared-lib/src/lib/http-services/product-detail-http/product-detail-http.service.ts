@@ -38,7 +38,7 @@ export class ProductDetailHttpService {
       .subscribe((res) => {
         console.log(res);
       });
-    window.location.reload();
+   // window.location.reload();
   }
   public deleteProductDetail(id?: number) {
     console.log("deleteProductLog", id)

@@ -4,12 +4,12 @@ import {Product, TechnicalDetail} from "../../../models";
 
 
 @Component({
-  selector: 'lib-add-product',
+  selector: 'lib-add-productdetail',
   templateUrl: './edit-productdetail-dialog.component.html',
   styleUrls: ['./edit-productdetail-dialog.component.css'],
 })
 export class EditProductDetailDialogComponent implements OnInit {
-  public product!: Product;
+  public productDetail!: TechnicalDetail;
 
   constructor(private dialogRef: MatDialogRef<EditProductDetailDialogComponent>,
               @Inject(MAT_DIALOG_DATA)
@@ -17,9 +17,9 @@ export class EditProductDetailDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("productDetails:", this.data.product.details[0].id);
+    //console.log("productDetails:", this.data.productDetail);
     console.log("data:", this.data);
-    this.product = this.data.product.details[0].id;
+    this.productDetail = this.data.product;
   }
 
   public close() {

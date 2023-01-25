@@ -27,14 +27,15 @@ export class EditProductDetailFormComponent implements OnInit {
   ngOnInit(): void {
     this.editProductDetailForm = this.formBuilder.group({
       // id: [this.product.id],
-      detailTitle: [this.product.details], //user.username über input
-      detailText: [this.product.details],
+      detailTitle: [this.productDetail.detailTitle], //user.username über input
+      detailText: [this.productDetail.detailText],
     });
   }
 
   public submit() {
-    console.log('>>>> ', this.editProductDetailForm.value, typeof this.product.details[0].id);
-    this.productDetailHttpService.editProductDetail(this.editProductDetailForm.value, this.product.details[0].id);
+    console.log('>>>> ', this.editProductDetailForm.value, typeof this.productDetail.id);
+    console.log(this.productDetail.id);
+    this.productDetailHttpService.editProductDetail(this.editProductDetailForm.value, this.productDetail.id);
     this.productDetailEdited.emit();
 
   }
