@@ -2,15 +2,14 @@ import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/c
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserLogicService} from '../../../logic-services/user-logic.service';
 import {UsersHttpService} from "../../../http-services";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Users} from "../../../models";
 
 @Component({
-  selector: 'lib-edit-user-form',
-  templateUrl: './edit-user-form.component.html',
-  styleUrls: ['./edit-user-form.component.css'],
+  selector: 'lib-edit-profile-form',
+  templateUrl: './edit-profile-form.component.html',
+  styleUrls: ['./edit-profile-form.component.css'],
 })
-export class EditUserFormComponent implements OnInit {
+export class EditProfileFormComponent implements OnInit {
   @Output() userEdited: EventEmitter<any> = new EventEmitter<any>();
   //input nimmt userobjekt entgegen (current user)
   @Input() user!: Users;

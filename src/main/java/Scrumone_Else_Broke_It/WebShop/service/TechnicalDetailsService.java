@@ -7,7 +7,6 @@ import Scrumone_Else_Broke_It.WebShop.repository.ProductRepository;
 import Scrumone_Else_Broke_It.WebShop.repository.TechnicalDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,14 +21,6 @@ public class TechnicalDetailsService {
 
     @Autowired
     public ProductRepository productRepository;
-    
-
-
-    public void saveTechnicalDetails(TechnicalDetails technicalDetails) {
-        logger.info("Angelegt");
-        technicalDetailsRepository.save(technicalDetails);
-    }
-
 
     public List<TechnicalDetails> getTechnicalDetailsList() {
         List<TechnicalDetails> list = new ArrayList<>();
@@ -39,6 +30,19 @@ public class TechnicalDetailsService {
         }
         return list;
     }
+
+    public void saveTechnicalDetails(TechnicalDetails technicalDetails) {
+        logger.info("Angelegt");
+        technicalDetailsRepository.save(technicalDetails);
+    }
+
+    public List<TechnicalDetails> getTechnicalDetailsForProduct(int id) {
+
+        Product product = productRepository.findById(id);
+        List<TechnicalDetails> technicalDetails = product.getDetails();
+        return technicalDetails;
+    }
+
 
     public TechnicalDetails getTechnicalDetailsById(int id) {
         logger.info("Get \"TechnicalDetails\" with the id: " + id);
@@ -56,7 +60,7 @@ public class TechnicalDetailsService {
         logger.info("Edit \"TechnicalDetails\" with id: " + id);
     }
 
-    public TechnicalDetails assignTechnicalDetailsToProduct(
+    /*public TechnicalDetails assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
@@ -65,5 +69,12 @@ public class TechnicalDetailsService {
         technicalDetails.assignProduct(product);
         return technicalDetailsRepository.save(technicalDetails);
 
+    }*/
+    public TechnicalDetails saveTechnicalDetailsForProducts(int id, TechnicalDetails technicalDetails) {
+
+        Product product = productRepository.findById(id);
+        technicalDetails.assignProduct(product);
+        technicalDetailsRepository.save(technicalDetails);
+        return technicalDetails;
     }
 }

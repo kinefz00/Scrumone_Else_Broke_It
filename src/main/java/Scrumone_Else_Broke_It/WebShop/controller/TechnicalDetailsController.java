@@ -16,11 +16,20 @@ public class TechnicalDetailsController {
     TechnicalDetailsService technicalDetailsService;
 
 
+    @GetMapping("/product/{id}/technicalDetails")
+    private List<TechnicalDetails> getAllTechnicalDetailsByProduct(@PathVariable int id) {
+        return technicalDetailsService.getTechnicalDetailsForProduct(id);
+    }
+
     @GetMapping("/technicalDetails")
     private List<TechnicalDetails> getAllTechnicalDetails() {
         return technicalDetailsService.getTechnicalDetailsList();
     }
 
+    @PostMapping("/product/{id}/technicalDetails")
+    public TechnicalDetails saveTechnicalDetailsForProducts(@PathVariable int id, @RequestBody TechnicalDetails technicalDetails) {
+        return technicalDetailsService.saveTechnicalDetailsForProducts(id, technicalDetails);
+    }
 
     @GetMapping("/technicalDetails/{id}")
     private TechnicalDetails getTechnicalDetailsId(@PathVariable("id") int id) {
@@ -46,11 +55,11 @@ public class TechnicalDetailsController {
         technicalDetailsService.edit(id, technicalDetails);
     }
 
-     @PutMapping("/{technicalDetailsId}/product/{productId}")
+     /*@PutMapping("/{technicalDetailsId}/product/{productId}")
     public void assignTechnicalDetailsToProduct(
             @PathVariable int technicalDetailsId,
             @PathVariable int productId
     ) {
         this.technicalDetailsService.assignTechnicalDetailsToProduct(technicalDetailsId, productId);
-    }
+    }*/
 }

@@ -15,10 +15,14 @@ public class DeliveryAddressController {
     DeliveryAddressService deliveryAddressService;
 
     @GetMapping("/user/{username}/deliveryAddress")
-    private List<DeliveryAddress> getAllDeliveryAddress(@PathVariable String username) {
+    private List<DeliveryAddress> getAllDeliveryAddressForUsername(@PathVariable String username) {
         return deliveryAddressService.getDeliveryAddressListForUsername(username);
     }
 
+    @GetMapping("/deliveryAddress")
+    private List<DeliveryAddress> getAllDeliveryAddress(){
+        return deliveryAddressService.getDeliveryAddressList();
+    }
 
     @PostMapping("/user/{username}/deliveryAddress")
     public DeliveryAddress saveDeliveryAddressForUser(@PathVariable String username, @RequestBody DeliveryAddress deliveryAddress) {
@@ -31,11 +35,11 @@ public class DeliveryAddressController {
     }
 
 
-    @PostMapping("/deliveryAddress")
+    /*@PostMapping("/deliveryAddress")
     public void saveDeliveryAddress(@RequestBody DeliveryAddress deliveryAddress) {
         deliveryAddressService.saveDeliveryAddress(deliveryAddress);
 
-    }
+    }*/
 
 
     @DeleteMapping("/deliveryAddress/{id}")
@@ -48,11 +52,11 @@ public class DeliveryAddressController {
     public void editDeliveryAddress(@PathVariable int id, @RequestBody DeliveryAddress deliveryAddress) {
         deliveryAddressService.edit(id, deliveryAddress);
     }
-    @PutMapping("/{deliveryAddressId}/user/{username}")
+    /*@PutMapping("/{deliveryAddressId}/user/{username}")
     public void assignDeliveryAddressToUser(
             @PathVariable int deliveryAddressId,
             @PathVariable String username
     ) {
         this.deliveryAddressService.assignDeliveryAddressToUser(deliveryAddressId, username);
-    }
+    }*/
 }

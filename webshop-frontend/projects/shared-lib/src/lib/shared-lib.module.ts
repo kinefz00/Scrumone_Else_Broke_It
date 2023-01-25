@@ -49,6 +49,8 @@ import {
 import {
   EditDeliveryAddressFormComponent
 } from "./components/forms/edit-deliveryaddress-form/edit-deliveryaddress-form.component";
+import {EditProfileFormComponent} from "./components/forms/edit-profile-form/edit-profile-form.component";
+import {EditProfileDialogComponent} from "./components/dialogs/edit-profile-dialog/edit-profile-dialog.component";
 
 
 
@@ -71,6 +73,8 @@ import {
     AddDeliveryAddressFormComponent,
     EditDeliveryAddressDialogComponent,
     EditDeliveryAddressFormComponent,
+    EditProfileFormComponent,
+    EditProfileDialogComponent,
   ],
   imports: [
     BrowserAnimationsModule,
