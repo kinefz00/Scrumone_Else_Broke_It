@@ -1,31 +1,39 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
+@Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@Entity
 
-public class Wishlist implements Serializable {
 
-    @EmbeddedId
-    private WishlistId id = new WishlistId();
+@Table(name = "wishlist")
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @MapsId("userEntityId")
-    @JsonIgnore
+public class Wishlist{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+
+    @ManyToOne(targetEntity = UserEntity.class, fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @MapsId("productId")
+    @ManyToOne()
+    @JoinColumn(name = "product_id")
     private Product product;
 
+    public Wishlist(boolean b, String add_to_wishlist) {
+
+    }
+
+    public Wishlist(UserEntity user, Product product) {
+        this.user = user;
+        this.product = product;
+    }
 }
