@@ -8,4 +8,5 @@ import Scrumone_Else_Broke_It.WebShop.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     Product findById (int id);
+
 }

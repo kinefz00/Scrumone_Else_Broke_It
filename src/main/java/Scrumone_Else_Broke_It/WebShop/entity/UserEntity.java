@@ -1,6 +1,7 @@
 package Scrumone_Else_Broke_It.WebShop.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,4 +33,8 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private List<DeliveryAddress> deliveryAddress;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "username")
+    private List<Wishlist>wishlistList;
 }

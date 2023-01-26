@@ -33,7 +33,7 @@ public class Product {
     private List<TechnicalDetails> details;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "productId")
     private List<Wishlist>wishlistList;
 
 }
