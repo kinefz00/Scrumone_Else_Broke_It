@@ -1,13 +1,13 @@
 import {TestBed} from '@angular/core/testing';
-import {DeliveryaddressHttpService} from "./deliveryaddress-http.service";
+import {DeliveryAddressHttpService} from "./delivery-address-http.service";
 
 
 describe('DeliveryAddressHttpService', () => {
-  let service: DeliveryaddressHttpService;
+  let service: DeliveryAddressHttpService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DeliveryaddressHttpService);
+    service = TestBed.inject(DeliveryAddressHttpService);
   });
 
   it('should be created', () => {

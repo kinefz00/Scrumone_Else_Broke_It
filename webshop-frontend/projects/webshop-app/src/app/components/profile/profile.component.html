@@ -35,7 +35,7 @@
           <td mat-cell *matCellDef="let element">
             <span *ngFor="let detail of element.deliveryAddress"> {{detail.street}} {{detail.houseNumber}} {{detail.zipCode}} {{detail.city}}
               <button class="btn-edit" (click)="openEditDeliveryAddressDialog(element)">Edit</button>
-              <button class="btn-delete" (click)="this.deliveryAddressHttpService.deleteDeliveryAddress(element.id)">Delete</button>
+              <button class="btn-delete" (click)="this.deliveryAddressHttpService.deleteDeliveryAddress(detail.id)">Delete</button>
               <br>
             </span>
           </td>

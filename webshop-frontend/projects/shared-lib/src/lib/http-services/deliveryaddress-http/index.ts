@@ -1,1 +1,1 @@
-export * from './deliveryaddress-http.service'
+export * from './delivery-address-http.service'

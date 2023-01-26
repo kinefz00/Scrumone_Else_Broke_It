@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DeliveryAddress, Users} from "../../../models";
-import {DeliveryaddressHttpService} from "../../../http-services/deliveryaddress-http";
+import {DeliveryAddressHttpService} from "../../../http-services/deliveryaddress-http";
 
 @Component({
   selector: 'lib-edit-deliveryaddress-form',
@@ -20,7 +20,7 @@ export class EditDeliveryAddressFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private deliveryAddressHttpService: DeliveryaddressHttpService,
+    private deliveryAddressHttpService: DeliveryAddressHttpService,
   ) {
   }
 

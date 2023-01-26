@@ -12,7 +12,7 @@ import {
 import {
   EditDeliveryAddressDialogComponent
 } from "../../../../../shared-lib/src/lib/components/dialogs/edit-deliveryaddress-dialog/edit-deliveryaddress-dialog.component";
-import {DeliveryaddressHttpService} from "../../../../../shared-lib/src/lib/http-services/deliveryaddress-http";
+import {DeliveryAddressHttpService} from "../../../../../shared-lib/src/lib/http-services/deliveryaddress-http";
 import {
   EditProfileDialogComponent
 } from "../../../../../shared-lib/src/lib/components/dialogs/edit-profile-dialog/edit-profile-dialog.component";
@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public userHttpService: UsersHttpService,
-    public deliveryAddressHttpService: DeliveryaddressHttpService,
+    public deliveryAddressHttpService: DeliveryAddressHttpService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     public authService: AuthenticationService,

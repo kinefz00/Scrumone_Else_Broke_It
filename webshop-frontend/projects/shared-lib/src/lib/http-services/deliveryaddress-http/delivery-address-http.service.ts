@@ -24,7 +24,7 @@ export interface DeliveryAddressResponse {
 @Injectable({
   providedIn: 'root',
 })
-export class DeliveryaddressHttpService {
+export class DeliveryAddressHttpService {
   private url = 'http://localhost:8080';
   private path = 'deliveryAddress';
   private path2 = 'user';
