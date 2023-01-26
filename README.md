@@ -23,12 +23,12 @@ To run backend go to use WebShopApplication
 ## Frontend
 ### Start
 Node Js has to be installed if not: Download and install. https://nodejs.org/en/download/
-To run frontend go to directory `.\webshop-frontend` and execute 
+To run frontend go to directory `.\webshop-frontend` and execute in a powershell.
 
 ```
 npm install -g @angular/cli
-.\npm install
-.\ng serve
+npm install
+ng serve
 ```
 
 ## Go to Application
