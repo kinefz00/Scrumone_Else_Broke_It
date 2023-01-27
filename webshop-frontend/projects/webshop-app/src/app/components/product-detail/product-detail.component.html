@@ -7,7 +7,9 @@
       </div>
 
       <div class="project-info-box">
-        <p><b>Price:</b> {{singleProduct?.price}}</p>
+        <p> Current currency: {{selectedCurrency}}</p>
+        <button (click)="switchCurrency()">Switch Currency</button>
+        <p><b>Price:</b> {{selectedCurrency === 'USD' ? (singleProduct?.price?  convertToUSD(singleProduct.price) : 'N/A') : singleProduct.price}} {{selectedCurrency}}</p>
         <p><b>Currency:</b> {{singleProduct?.currency}}</p>
         <p><b>Description:</b> {{singleProduct?.description}}</p>
         <h3>Details</h3>

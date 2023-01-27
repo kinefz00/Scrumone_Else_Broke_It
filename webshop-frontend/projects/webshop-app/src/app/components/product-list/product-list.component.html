@@ -14,7 +14,10 @@
 
      <div class="product-box">
        <h2 class="product-title" >{{p.name}}</h2>
-      <span class="price" >{{p.price}}</span>
+       <p> Current currency: {{selectedCurrency}}</p>
+       <button (click)="switchCurrency()">Switch Currency</button>
+      <span class="price" >
+      {{selectedCurrency === 'USD' ? (p?.price?  convertToUSD(p.price) : 'N/A') : p.price}} {{selectedCurrency}}</span>
       <span class="currency" >{{p.currency}}</span>
       <p class="category" >{{p.category}}</p>
       <p></p> <a routerLink="/product/{{p.id}}">Zu den Produktdetails</a><p>
