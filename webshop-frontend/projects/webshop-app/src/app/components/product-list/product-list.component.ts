@@ -11,8 +11,6 @@ import {
 })
 export class ProductListComponent implements OnInit {
   public productList: Product[] = []; // Liste von Produkten, initialisiert als leeres Array um Laufzeitfehler zu vermeiden
-  public selectedCurrency= 'EUR';
-  public exchangeRate =1.1;
   USER_NAME_SESSION_ATTRIBUTE_DISCOUNT = 'userDiscount'
 
   constructor(
@@ -31,17 +29,8 @@ export class ProductListComponent implements OnInit {
 
   }
 
-  changeCurrency(currency: string){
-    this.selectedCurrency = currency;
-  }
 
-  public switchCurrency(){
-    this.selectedCurrency = this.selectedCurrency === 'EUR' ? 'USD' : 'EUR';
-  }
 
-  public convertToUSD(price: number){
-    return Number((price = this.exchangeRate*price).toFixed(2));
-  }
 
   discountCalc() {
     let discount = Number(sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_DISCOUNT));

@@ -3,14 +3,13 @@
     <div class="col-md-5">
       <div class="project-info-box mt-0">
         <h2>{{singleProduct?.name}}</h2>
-        <p class="mb-0">{{singleProduct?.category}}</p>
+        <p class="mb-0"><b>Category: </b>{{singleProduct?.category}}</p>
       </div>
 
       <div class="project-info-box">
-        <p> Current currency: {{selectedCurrency}}</p>
-        <button (click)="switchCurrency()">Switch Currency</button>
+        <p><b>Current currency:</b>  {{selectedCurrency}}
+        <button (click)="switchCurrency()">Switch Currency</button></p>
         <p><b>Price:</b> {{selectedCurrency === 'USD' ? (singleProduct?.price?  convertToUSD(singleProduct.price) : 'N/A') : singleProduct.price}} {{selectedCurrency}}</p>
-        <p><b>Currency:</b> {{singleProduct?.currency}}</p>
         <p><b>Description:</b> {{singleProduct?.description}}</p>
         <h3>Details</h3>
         <div *ngIf="singleProduct?.details">
