@@ -10,6 +10,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   USER_NAME_SESSION_ATTRIBUTE_DISCOUNT = 'userDiscount'
+  public selectedCurrency = 'EUR';
+  public exchangeRate = 1.1;
   constructor(
     private productService: ProductHttpService,
     private activatedRoute: ActivatedRoute,
@@ -40,6 +42,14 @@ export class ProductDetailComponent implements OnInit {
       console.log(error)
     })
   }
+  changeCurrency(currency: string){
+    this.selectedCurrency = currency;
+  }
+  public switchCurrency(){
+    this.selectedCurrency = this.selectedCurrency === 'EUR' ? 'USD' : 'EUR';
+  }
 
-
+  public convertToUSD(price: number){
+    return Number((price = this.exchangeRate*price).toFixed(2))
+  }
 }
